@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "SF Pro Display";
+    src: url("../fonts/sf-pro-display/SFPRODISPLAYREGULAR.OTF") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+body::selection {
+    background: var(--primary-color);
+    color: var(--theme-color);
+}
+
+body{
+    font-family: SF Pro Display, Verdana, sans-serif;
+    scroll-behavior: smooth;
+
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+#dash{
+    color: var(--blacktext-color);
+}
+
+#active{
+    background-color: var(--primary-color) ;
+    padding: 10px;
+    border-radius: 18px;
+    img{
+        filter: invert(1);
+    }
+}

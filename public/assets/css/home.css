@@ -1,0 +1,146 @@
+:root{
+    /* Ajuste ici si tu veux micro-corriger les teintes */
+    --surface: #151515;      /* tour sombre (fond de page) */
+    --paper:   #f4f6fb;      /* fond clair central */
+    --blue:    #4878ff;      /* bleu (titres / accent) */
+    --nav-cyan:#21d0ff;      /* pilule nav (cyan clair comme la capture) */
+    --btn-blue:#2e64ff;      /* bouton Connexion (bleu) */
+    --btn-cyan:#21d0ff;      /* bouton S’inscrire (cyan) */
+    --text:    #0f1115;      /* texte titre */
+    --muted:   #374151;      /* texte secondaire */
+    --white:   #ffffff;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; }
+
+.page-surface{
+    min-height:100%;
+    background: var(--surface);
+}
+
+/* NAV FIXE (toujours visible) */
+.nav-fixed{
+    position: fixed;
+    z-index: 30;
+    top: 12px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    pointer-events: none; /* pour que seule la pilule capte la souris */
+}
+
+.nav-pill{
+    width: min(1120px, calc(100% - 48px));
+    background: var(--nav-cyan);
+    color: var(--white);
+    border-radius: 999px;
+    height: 64px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 16px;
+    padding: 0 18px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.25);
+    pointer-events: auto;
+}
+
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-mark{
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #e9f6ff; content: "";
+}
+.brand-mini{ font-size: 12px; color:#0c2d5a; font-weight:700; letter-spacing:.2px; opacity:.95; }
+
+.nav-links{
+    list-style:none; display:flex; align-items:center; gap:28px;
+    margin:0; padding:0 8px;
+}
+.nav-links a{
+    text-decoration:none; color:var(--white); font-weight:700;
+}
+.nav-links a.is-active{
+    text-underline-offset: 8px; 
+}
+.nav-time{
+    background: rgba(255,255,255,.18);
+    padding: 6px 12px; border-radius: 12px; font-weight:800; letter-spacing:.6px;
+}
+
+.nav-actions{ display:flex; gap:10px; }
+.btn{
+    height: 36px; padding: 0 14px; border-radius: 999px;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-weight:800; text-decoration:none; color:var(--white);
+    border: 2px solid transparent;
+}
+.btn-primary{ background: var(--btn-blue); }
+.btn-secondary{ background: var(--btn-cyan); }
+
+/* FEUILLE CLAIRE AU CENTRE */
+.paper{
+    position: relative;
+    background: var(--paper);
+    min-height: 100vh;
+    padding-top: 110px;  /* laisse la place à la nav fixe + vague */
+    overflow: hidden;
+}
+
+.container{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+}
+
+/* VAGUES */
+.wave{
+    position: absolute; left: 0; width: 100%; height: auto; pointer-events: none;
+}
+.wave-top{ top: 0; transform: scaleY(-1); z-index: 0; }
+.wave-bottom{ bottom: -120px; z-index: 0; }
+
+/* CONTENU */
+.hero, .content{ position: relative; z-index: 1; }
+
+.title{
+    margin: 36px 0 10px;
+    font-size: clamp(44px, 7vw, 66px);
+    font-weight: 800; letter-spacing:.2px; line-height:1.05;
+    color: var(--text);
+}
+.title .med{ color: var(--blue); }
+
+.subtitle{
+    margin: 0 0 26px;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: .25em;            /* effet “espacé” comme la capture */
+    text-transform: none;             /* phrase normale, pas caps */
+}
+
+.content{
+    font-size: 16px; line-height: 1.8; color: #222;
+}
+.content p{ margin: 0 0 18px; }
+
+/* Responsive */
+@media (max-width: 860px){
+    .nav-pill{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+      "brand actions"
+      "links links";
+        height: auto;
+        padding: 12px 14px;
+        row-gap: 10px;
+    }
+    .brand{ grid-area: brand; }
+    .nav-links{ grid-area: links; justify-content: center; }
+    .nav-actions{ grid-area: actions; justify-content: end; }
+    .paper{ padding-top: 132px; }
+}
+
+@media (max-width: 560px){
+    .nav-time{ display:none; }
+}

@@ -1,0 +1,45 @@
+nav{
+    width: 5vw;
+    background-color: var(--theme-color);
+    box-shadow: var();
+
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 5px 5px;
+    height: 100vh;
+
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img{
+            width: 1.7em;
+        }
+        height: 30%;
+        gap: 15px;
+
+    }
+
+    .tabs{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+    }
+
+
+    .login{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+}

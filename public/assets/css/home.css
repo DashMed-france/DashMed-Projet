@@ -1,146 +1,185 @@
 :root{
-    /* Ajuste ici si tu veux micro-corriger les teintes */
-    --surface: #151515;      /* tour sombre (fond de page) */
-    --paper:   #f4f6fb;      /* fond clair central */
-    --blue:    #4878ff;      /* bleu (titres / accent) */
-    --nav-cyan:#21d0ff;      /* pilule nav (cyan clair comme la capture) */
-    --btn-blue:#2e64ff;      /* bouton Connexion (bleu) */
-    --btn-cyan:#21d0ff;      /* bouton S’inscrire (cyan) */
-    --text:    #0f1115;      /* texte titre */
-    --muted:   #374151;      /* texte secondaire */
-    --white:   #ffffff;
+  --surface: #151515;
+  --paper:   #f4f6fb;
+  --blue:    #4878ff;
+  --nav-cyan:#21d0ff;
+  --btn-blue:#2e64ff;
+  --btn-cyan:#21d0ff;
+  --text:    #0f1115;
+  --muted:   #374151;
+  --white:   #ffffff;
 }
 
 *{ box-sizing: border-box; }
-html,body{ height:100%; margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; }
 
-.page-surface{
+html, body { margin: 0; overflow-x: hidden; }
+
+.page-surface{ 
     min-height:100%;
-    background: var(--surface);
 }
 
-/* NAV FIXE (toujours visible) */
+/* NAV FIXE */
 .nav-fixed{
-    position: fixed;
-    z-index: 30;
-    top: 12px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    pointer-events: none; /* pour que seule la pilule capte la souris */
+  position: fixed;
+  top: 12px; 
+  left:0; 
+  right:0;
+  display:flex; 
+  justify-content:center;
+  z-index: 30;
 }
 
 .nav-pill{
-    width: min(1120px, calc(100% - 48px));
-    background: var(--nav-cyan);
-    color: var(--white);
-    border-radius: 999px;
-    height: 64px;
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    align-items: center;
-    gap: 16px;
-    padding: 0 18px;
-    box-shadow: 0 10px 26px rgba(0,0,0,.25);
-    pointer-events: auto;
+  width: min(1120px, calc(100% - 48px));
+  background: var(--nav-cyan);
+  border-radius: 999px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: var(--white);
 }
 
-.brand{ display:flex; align-items:center; gap:12px; }
-.brand-mark{
-    width: 40px; height: 40px; border-radius: 50%;
-    background: #e9f6ff; content: "";
+/* Logo + texte DashMed dessous */
+.brand{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  margin-right: 20px;
 }
-.brand-mini{ font-size: 12px; color:#0c2d5a; font-weight:700; letter-spacing:.2px; opacity:.95; }
+.brand-logo {
+  width: 40px;      /* largeur fixe */
+  height: 40px;     /* hauteur fixe */
+  object-fit: contain;  /* garde les proportions */
+  border-radius: 50%;
+  background: #e9f6ff;  /* cercle bleu clair derrière */
+  padding: 6px;     /* espace autour de l’image */
+}
 
+.brand-mini{
+  font-size:12px;
+  margin-top:2px;
+  color:#003366;
+  font-weight:700;
+}
+
+/* Liens */
 .nav-links{
-    list-style:none; display:flex; align-items:center; gap:28px;
-    margin:0; padding:0 8px;
+  display:flex; 
+  align-items:center;
+  gap:28px;
+  list-style:none; 
+  margin:0; 
+  padding:0;
+  flex:1;
 }
 .nav-links a{
-    text-decoration:none; color:var(--white); font-weight:700;
+  text-decoration:none;
+  font-weight:700;
+  color:var(--white);
 }
-.nav-links a.is-active{
-    text-underline-offset: 8px; 
-}
+
 .nav-time{
-    background: rgba(255,255,255,.18);
-    padding: 6px 12px; border-radius: 12px; font-weight:800; letter-spacing:.6px;
+  background:rgba(255,255,255,0.2);
+  padding:6px 12px;
+  border-radius:12px;
+  font-weight:700;
 }
 
-.nav-actions{ display:flex; gap:10px; }
+/* Actions */
+.nav-actions{
+  display:flex; 
+  gap:10px;
+}
 .btn{
-    height: 36px; padding: 0 14px; border-radius: 999px;
-    display:inline-flex; align-items:center; justify-content:center;
-    font-weight:800; text-decoration:none; color:var(--white);
-    border: 2px solid transparent;
+  display:inline-flex; 
+  align-items:center; 
+  justify-content:center;
+  height:34px; padding:0 14px;
+  border-radius:999px;
+  font-weight:700;
+  text-decoration:none;
+  color:var(--white);
 }
-.btn-primary{ background: var(--btn-blue); }
-.btn-secondary{ background: var(--btn-cyan); }
+.btn-primary{ 
+    background: var(--btn-blue); 
+}
+.btn-secondary{ 
+    background: var(--btn-cyan); 
+}
 
-/* FEUILLE CLAIRE AU CENTRE */
+/* FEUILLE CLAIRE */
 .paper{
-    position: relative;
-    background: var(--paper);
-    min-height: 100vh;
-    padding-top: 110px;  /* laisse la place à la nav fixe + vague */
-    overflow: hidden;
+  background: var(--paper);
+  position: relative;
+  min-height: 100dvh;  
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-top: 120px;
 }
 
 .container{
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0 20px 100px;
+  max-width:960px;
+  margin:0 auto;
+  padding:0 20px 100px;
+  text-align:center; /* centrer le titre */
 }
 
 /* VAGUES */
-.wave{
-    position: absolute; left: 0; width: 100%; height: auto; pointer-events: none;
+.fond {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: auto;
+  pointer-events: none; /* empêche la souris de cliquer dessus */
+  z-index: 0;           /* bien au fond */
 }
-.wave-top{ top: 0; transform: scaleY(-1); z-index: 0; }
-.wave-bottom{ bottom: -120px; z-index: 0; }
 
-/* CONTENU */
-.hero, .content{ position: relative; z-index: 1; }
+.fond-top {
+    top: 0; 
+    transform: scaleY(-1);
+}
 
+.fond-bottom { bottom: 0; }
+
+/* mets le contenu par-dessus */
+.hero, 
+.content,
+.title,
+.subtitle {
+  position: relative;
+  z-index: 1;   /* au-dessus des vagues */
+}
+
+
+
+
+/* Titre */
 .title{
-    margin: 36px 0 10px;
-    font-size: clamp(44px, 7vw, 66px);
-    font-weight: 800; letter-spacing:.2px; line-height:1.05;
-    color: var(--text);
+  font-size:clamp(44px,6vw,66px);
+  font-weight:800;
+  margin:20px 0 10px;
 }
-.title .med{ color: var(--blue); }
+
+.title .med{ 
+    color: var(--blue); 
+}
 
 .subtitle{
-    margin: 0 0 26px;
-    color: var(--muted);
-    font-weight: 600;
-    letter-spacing: .25em;            /* effet “espacé” comme la capture */
-    text-transform: none;             /* phrase normale, pas caps */
+  margin:0 0 30px;
+  color:var(--muted);
+  font-weight:500;
 }
 
+/* Texte */
 .content{
-    font-size: 16px; line-height: 1.8; color: #222;
+  text-align:left;
+  font-size:16px;
+  line-height:1.8;
+  color:#222;
 }
-.content p{ margin: 0 0 18px; }
-
-/* Responsive */
-@media (max-width: 860px){
-    .nav-pill{
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-      "brand actions"
-      "links links";
-        height: auto;
-        padding: 12px 14px;
-        row-gap: 10px;
-    }
-    .brand{ grid-area: brand; }
-    .nav-links{ grid-area: links; justify-content: center; }
-    .nav-actions{ grid-area: actions; justify-content: end; }
-    .paper{ padding-top: 132px; }
-}
-
-@media (max-width: 560px){
-    .nav-time{ display:none; }
+.content p{ 
+    margin-bottom:18px; 
 }

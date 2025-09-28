@@ -23,11 +23,26 @@ body{
     color: var(--blacktext-color);
 }
 
-#active{
-    background-color: var(--primary-color) ;
+#active {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--primary-color);
     padding: 10px;
     border-radius: 18px;
-    img{
+
+    transition: background-color 0.3s ease, filter 0.3s ease;
+
+    img {
         filter: invert(1);
+    }
+}
+
+#active:hover {
+    background-color: var(--hover-color);
+
+    img {
+        filter: invert(0);
     }
 }

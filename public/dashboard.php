@@ -25,5 +25,29 @@
         </section>
     </nav>
 
+    <main class="container">
+        <section class="cards-container">
+        <article class="card">
+            <h3>Fréquence cardiaque</h3>
+            <p class="value">72 bpm</p>
+        </article>
+
+        <article class="card">
+            <h3>Saturation O₂</h3>
+            <p class="value">98 %</p>
+        </article>
+
+        <article class="card">
+            <h3>Tension artérielle</h3>
+            <p class="value">118/76 mmHg</p>
+        </article>
+
+        <article class="card">
+            <h3>Température</h3>
+            <p class="value">36,7 °C</p>
+        </article>
+        </section>
+    </main>
+
 </body>
 </html>

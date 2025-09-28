@@ -1,7 +1,14 @@
+:root{
+  --sidebar-w: 76px;
+}
+
 nav{
-    width: 5vw;
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
     background-color: var(--theme-color);
-    box-shadow: var();
+    box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 10px 30px rgba(0,0,0,.25);
 
     border-top-right-radius: 18px;
     border-bottom-right-radius: 18px;
@@ -12,34 +19,89 @@ nav{
     justify-content: space-between;
 
     padding: 5px 5px;
-    height: 100vh;
+}
 
-    section{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        img{
-            width: 1.7em;
-        }
-        height: 30%;
-        gap: 15px;
+nav section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 30%;
+    gap: 15px;
+}
+nav section img{ width: 1.7em; }
 
-    }
+nav .tabs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
 
-    .tabs{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 50px;
-    }
+nav .login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 
-    .login{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+.container{
+    margin-left: calc(var(--sidebar-w) + 16px);
+    padding: 24px 24px 40px;
+}
 
-    }
+
+@media (max-width: 780px){
+  nav{
+    top: 0; left: 0; right: 0; bottom: auto;
+    height: 64px;
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px 10px;
+  }
+  nav section{ height: auto; flex-direction: row; gap: 12px; }
+  nav .tabs{ flex-direction: row; gap: 16px; }
+  .container{ margin-left: 0; padding-top: 80px; }
+}
+
+
+.cards-container {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 70px;
+}
+
+.card {
+    background: var(--theme-color);
+    color: var(--primary-color);
+    border-radius: 16px;
+    padding: 24px;
+    width: 240px;
+    text-align: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,.3);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.35);
+}
+
+.card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--muted, #98a2b3);
+    text-transform: uppercase;
+}
+
+.card .value {
+    font-size: 26px;
+    font-weight: 800;
 }

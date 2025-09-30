@@ -15,7 +15,6 @@
       <nav class="nav-pill">
         <div class="brand">
             <img src="assets/img/icons/logo.png" alt="Logo DashMed" class="brand-logo">
-            <div class="brand-mini">DashMed</div>
         </div>
         <ul class="nav-links">
           <li><a href="#">Accueil</a></li>
@@ -32,11 +31,11 @@
       <main class="container">
         <section class="hero">
           <h1 class="title">
-            <p><span id="dash">Dash</span><span style="color: blue">Med</span></p>
+            <span id="dash">Dash</span><span style="color: blue">Med</span>
           </h1>
           <p class="subtitle">Gérez facilement vos patients</p>
         </section>
-        <section class="content">
+        <section>
           <p>
             Derrière chaque traitement, il y a une relation entre un patient et son médecin. DashMed a été créé
             pour renforcer ce lien essentiel, en offrant un espace unique où l’information circule de façon claire

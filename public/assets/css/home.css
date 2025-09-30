@@ -1,22 +1,4 @@
-:root{
-  --surface: #151515;
-  --paper:   #f4f6fb;
-  --blue:    #4878ff;
-  --nav-cyan:#21d0ff;
-  --btn-blue:#2e64ff;
-  --btn-cyan:#21d0ff;
-  --text:    #0f1115;
-  --muted:   #374151;
-  --white:   #ffffff;
-}
-
 *{ box-sizing: border-box; }
-
-html, body { 
-  margin: 0; 
-  overflow-x: hidden; 
-  height: 100%; 
-}
 
 body{
   background-image: url("../img/fond.svg");
@@ -75,6 +57,7 @@ body{
   margin:0; 
   padding:0;
   flex:1;
+  color: var(--theme-color);
 }
 .nav-links a{
   text-decoration:none;
@@ -105,17 +88,22 @@ body{
 }
 .btn-primary{ 
   border-radius: 60px;
-  background: var(--Tertiary-light, #ECECF2);
-  color: #000;
+  background: var(--theme-color);
+  color: var(--blacktext-color);
 }
 .btn-secondary{ 
   border-radius: 60px;
-  border: 3px solid var(--Tertiary-light, #ECECF2);
+  border: 3px solid var(--tertiary-color, #ECECF2);
+  color: var(--theme-color);
 }
 
 .paper{
   position: relative;
-  min-height: 100dvh;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
@@ -153,4 +141,9 @@ body{
   color:#222;
 }
 
+@media (min-width: 1500px){
+  .paper{
+    font-size: 1.7em;
+  }
+}
 

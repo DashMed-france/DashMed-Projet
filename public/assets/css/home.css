@@ -12,13 +12,16 @@
 
 *{ box-sizing: border-box; }
 
-html, body { margin: 0; overflow-x: hidden; }
+html, body { 
+  margin: 0; 
+  overflow-x: hidden; 
+  height: 100%; 
+}
 
 .page-surface{ 
     min-height:100%;
 }
 
-/* NAV FIXE */
 .nav-fixed{
   position: fixed;
   top: 12px; 
@@ -31,7 +34,8 @@ html, body { margin: 0; overflow-x: hidden; }
 
 .nav-pill{
   width: min(1120px, calc(100% - 48px));
-  background: var(--nav-cyan);
+  border-radius: 70px;
+  background: var(--Primary-light, #275AFE);
   border-radius: 999px;
   height: 64px;
   display: flex;
@@ -41,7 +45,6 @@ html, body { margin: 0; overflow-x: hidden; }
   color: var(--white);
 }
 
-/* Logo + texte DashMed dessous */
 .brand{
   display:flex;
   flex-direction: column;
@@ -49,22 +52,21 @@ html, body { margin: 0; overflow-x: hidden; }
   margin-right: 20px;
 }
 .brand-logo {
-  width: 40px;      /* largeur fixe */
-  height: 40px;     /* hauteur fixe */
-  object-fit: contain;  /* garde les proportions */
+  width: 48px;     
+  height: 48px;    
+  object-fit: contain; 
   border-radius: 50%;
-  background: #e9f6ff;  /* cercle bleu clair derrière */
-  padding: 6px;     /* espace autour de l’image */
+  background: #e9f6ff; 
+  padding: 6px;    
 }
 
 .brand-mini{
   font-size:12px;
   margin-top:2px;
-  color:#003366;
+  color:#ffffff;
   font-weight:700;
 }
 
-/* Liens */
 .nav-links{
   display:flex; 
   align-items:center;
@@ -85,9 +87,9 @@ html, body { margin: 0; overflow-x: hidden; }
   padding:6px 12px;
   border-radius:12px;
   font-weight:700;
+  justify-self: center;  
 }
 
-/* Actions */
 .nav-actions{
   display:flex; 
   gap:10px;
@@ -103,13 +105,15 @@ html, body { margin: 0; overflow-x: hidden; }
   color:var(--white);
 }
 .btn-primary{ 
-    background: var(--btn-blue); 
+  border-radius: 60px;
+  background: var(--Tertiary-light, #ECECF2);
+  color: #000;
 }
 .btn-secondary{ 
-    background: var(--btn-cyan); 
+  border-radius: 60px;
+  border: 3px solid var(--Tertiary-light, #ECECF2);
 }
 
-/* FEUILLE CLAIRE */
 .paper{
   background: var(--paper);
   position: relative;
@@ -118,45 +122,48 @@ html, body { margin: 0; overflow-x: hidden; }
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   padding-top: 120px;
+  overflow: hidden;
 }
 
 .container{
   max-width:960px;
   margin:0 auto;
   padding:0 20px 100px;
-  text-align:center; /* centrer le titre */
+  text-align:center;
 }
 
-/* VAGUES */
 .fond {
   position: absolute;
   left: 0;
   width: 100vw;
   height: auto;
-  pointer-events: none; /* empêche la souris de cliquer dessus */
-  z-index: 0;           /* bien au fond */
+  pointer-events: none; 
+  z-index: 0;          
 }
 
 .fond-top {
-    top: 0; 
-    transform: scaleY(-1);
+  top: 0; 
+  transform: scaleY(-1);
 }
 
-.fond-bottom { bottom: 0; }
+.fond-bottom { 
+  bottom: 0%; 
+}
 
-/* mets le contenu par-dessus */
+@media (min-width:1280px){
+  .fond{ max-height:190px; }
+  .fond-bottom{ bottom:0; transform:translateY(10px); }
+  .container{ padding-bottom:260px; }
+}
+
 .hero, 
 .content,
 .title,
 .subtitle {
   position: relative;
-  z-index: 1;   /* au-dessus des vagues */
+  z-index: 1;
 }
 
-
-
-
-/* Titre */
 .title{
   font-size:clamp(44px,6vw,66px);
   font-weight:800;
@@ -173,7 +180,6 @@ html, body { margin: 0; overflow-x: hidden; }
   font-weight:500;
 }
 
-/* Texte */
 .content{
   text-align:left;
   font-size:16px;

@@ -10,47 +10,34 @@
   <link rel="stylesheet" href="assets/css/form.css">
   <link rel="stylesheet" href="assets/css/themes/light.css">
   <link rel="stylesheet" href="assets/css/home.css" />
-  
 </head>
 <body>
   <div class="page-surface">
-    <!-- NAV FIXE -->
     <header class="nav-fixed">
       <nav class="nav-pill">
-        <!-- Logo + texte DashMed en dessous -->
         <div class="brand">
             <img src="assets/img/icons/logo.png" alt="Logo DashMed" class="brand-logo">
             <div class="brand-mini">DashMed</div>
         </div>
-
-        <!-- Liens -->
         <ul class="nav-links">
           <li><a href="#">Accueil</a></li>
           <li><a href="#">A&nbsp;propos</a></li>
           <li class="nav-time" id="clock">10:09</li>
         </ul>
-
-        <!-- Boutons -->
         <div class="nav-actions">
           <a class="btn btn-primary" href="#">Connexion</a>
           <a class="btn btn-secondary" href="#">S’inscrire</a>
         </div>
       </nav>
     </header>
-
-    <!-- CONTENU avec vague -->
     <div class="paper">
-      <img src="assets/img/icons/fond.svg" alt="" class="fond fond-top" aria-hidden="true">
-
       <main class="container">
         <section class="hero">
-          <!-- Titre centré -->
           <h1 class="title">
-            <span class="dash">Dash</span><span class="med">Med</span>
+            <p><span id="dash">Dash</span><span style="color: blue">Med</span></p>
           </h1>
           <p class="subtitle">Gérez facilement vos patients</p>
         </section>
-
         <section class="content">
           <p>
             Derrière chaque traitement, il y a une relation entre un patient et son médecin. DashMed a été créé
@@ -67,7 +54,6 @@
           </p>
         </section>
       </main>
-
       <img src="assets/img/icons/fond.svg" alt="" class="fond fond-bottom" aria-hidden="true">
     </div>
   </div>

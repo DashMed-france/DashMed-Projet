@@ -1,5 +1,6 @@
 :root{
     --primary-color: #275AFE;
+    --hover-color: #849fff;
     --secondary-color: #00B4D8;
     --tertiary-color: #ECECF2;
     --background-color: #F4F4F8;
@@ -7,5 +8,5 @@
     --text-color: #4C5F71;
     --blacktext-color: #000;
     --theme-color: #FFF;
-    --hover-color: #c2c2c2;
+
 }

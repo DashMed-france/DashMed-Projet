@@ -62,7 +62,7 @@ nav .login {
     align-items: center;
     gap: 12px;
     width: 100%;
-    max-width: 980px;
+    max-width: 700px;
     margin: 8px 0 24px;
     padding: 12px 16px 12px 44px;
     background: #fff;
@@ -173,9 +173,8 @@ nav .login {
 
 .cards-container {
     margin-top: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 50px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .card {

@@ -32,7 +32,7 @@ body{
     padding: 10px;
     border-radius: 18px;
 
-    transition: background-color 0.3s ease, filter 0.3s ease;
+    transition: background-color 0.2s ease, filter 0.2s ease;
 
     img {
         filter: invert(1);
@@ -41,8 +41,4 @@ body{
 
 #active:hover {
     background-color: var(--hover-color);
-
-    img {
-        filter: invert(0);
-    }
 }

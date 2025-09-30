@@ -7,7 +7,7 @@
     <title>DashMed - Se connecter</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/form.css">
-    <link rel="stylesheet" href="assets/css/themes/light.css">
+    <link id="theme" rel="stylesheet" href="assets/css/themes/light.css">
 </head>
 <body>
     <form action="">
@@ -21,11 +21,11 @@
                 <label for="">Mot de passe</label>
                 <div>
                     <input type="password">
-                    <button><img src="assets/img/eye.svg" alt="eye"></button>
+                    <button onAction=""><img src="assets/img/icons/eye-open.svg" alt="eye"></button>
                 </div>
             </article>
             <section class="buttons">
-                <a class="neg">Annuler</a>
+                <a class="neg" href="?page=home">Annuler</a>
                 <button class="pos">Se connecter</button>
             </section>
         </section>

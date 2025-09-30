@@ -23,15 +23,15 @@ body{
 
 .nav-pill{
   width: min(1120px, calc(100% - 48px));
-  border-radius: 70px;
-  background: var(--Primary-light, #275AFE);
   border-radius: 999px;
+  background: var(--primary-color);
   height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  color: var(--white);
+  color: var(--text-color);
+  position: relative;
 }
 
 .brand{
@@ -45,7 +45,7 @@ body{
   height: 48px;    
   object-fit: contain; 
   border-radius: 50%;
-  background: #e9f6ff; 
+  background: var(--theme-color);
   padding: 6px;    
 }
 
@@ -62,11 +62,14 @@ body{
 .nav-links a{
   text-decoration:none;
   font-weight:700;
-  color:var(--white);
+  color:var(--theme-color);
 }
 
 .nav-time{
-  background:rgba(255,255,255,0.2);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--hover-color);
   padding:6px 12px;
   border-radius:12px;
   font-weight:700;
@@ -84,7 +87,7 @@ body{
   border-radius:999px;
   font-weight:700;
   text-decoration:none;
-  color:var(--white);
+  color:var(--theme-color);
 }
 .btn-primary{ 
   border-radius: 60px;
@@ -93,7 +96,7 @@ body{
 }
 .btn-secondary{ 
   border-radius: 60px;
-  border: 3px solid var(--tertiary-color, #ECECF2);
+  border: 2px solid var(--tertiary-color);
   color: var(--theme-color);
 }
 
@@ -124,13 +127,9 @@ body{
   margin:20px 0 10px;
 }
 
-.title .med{ 
-  color: var(--blue); 
-}
 
 .subtitle{
   margin:0 0 30px;
-  color:var(--muted);
   font-weight:500;
 }
 

@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="mot de passe" content="Page pour le réinitialisation du mot de passe.">
         <title>DashMed - Réinitialisation mot de passe</title>
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/form.css">
-        <link rel="stylesheet" href="assets/css/themes/light.css">
+        <link rel="stylesheet" href="../../public/assets/css/style.css">
+        <link rel="stylesheet" href="../../public/assets/css/form.css">
+        <link rel="stylesheet" href="../../public/assets/css/themes/light.css">
     </head>
     <body>
 
@@ -40,6 +40,6 @@
             </section>
         </section>
     </form>
-    <script src="assets/js/password.js"></script>
+    <script src="../../public/assets/js/password.js"></script>
     </body>
 <?php

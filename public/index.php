@@ -1,59 +1,98 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DashMed — Gérez facilement vos patients</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/form.css">
-  <link rel="stylesheet" href="assets/css/themes/light.css">
-  <link rel="stylesheet" href="assets/css/home.css" />
-</head>
-<body>
-  <div class="page-surface">
-    <header class="nav-fixed">
-      <nav class="nav-pill">
-        <div class="brand">
-            <img src="assets/img/icons/logo.png" alt="Logo DashMed" class="brand-logo">
-        </div>
-        <ul class="nav-links">
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#">A&nbsp;propos</a></li>
-          <li class="nav-time" id="clock">10:09</li>
-        </ul>
-        <div class="nav-actions">
-          <a class="btn btn-primary" href="login.php">Connexion</a>
-          <a class="btn btn-secondary" href="#">S’inscrire</a>
-        </div>
-      </nav>
-    </header>
-    <div class="paper">
-      <main class="container">
-        <section class="hero">
-          <h1 class="title">
-            <span id="dash">Dash</span><span style="color: blue">Med</span>
-          </h1>
-          <p class="subtitle">Gérez facilement vos patients</p>
-        </section>
-        <section>
-          <p>
-            Derrière chaque traitement, il y a une relation entre un patient et son médecin. DashMed a été créé
-            pour renforcer ce lien essentiel, en offrant un espace unique où l’information circule de façon claire
-            et sécurisée. L’idée est simple : permettre aux soignants de se concentrer sur leurs patients plutôt
-            que sur la gestion administrative, et offrir aux patients une meilleure compréhension et un meilleur
-            suivi de leur parcours de soins.
-          </p>
-          <p>
-            Avec DashMed, chaque consultation, chaque prescription et chaque rappel trouve sa place dans un
-            tableau de bord intuitif. La démarche repose sur la confiance et la transparence : protéger les
-            données de santé tout en fluidifiant les échanges. Notre ambition est de simplifier le quotidien
-            médical, et de rendre le suivi thérapeutique plus accessible pour tous.
-          </p>
-        </section>
-      </main>
-      <img src="assets/img/icons/fond.svg" alt="" class="fond fond-bottom" aria-hidden="true">
-    </div>
-  </div>
-  <script src="assets/js/home.js"></script>
-</body>
-</html>
+<?php
+declare(strict_types=1);
+session_start();
+
+/* ---- Réglages ---- */
+define('APP_PATH', dirname(__DIR__) . '/app');
+define('VIEW_PATH', APP_PATH . '/views');
+
+// Base URL auto (si ton app est dans un sous-dossier)
+$BASE_URL = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+if ($BASE_URL === '' || $BASE_URL === '\\') $BASE_URL = '/';
+
+/* ---- Utilitaires ---- */
+function slugifyPath(string $relPath): string {
+    // ex: "Blog/Index.php" -> "blog/index"
+    $p = str_replace('\\', '/', $relPath);
+    $p = preg_replace('~\.php$~i', '', $p);
+    $p = preg_replace('~/{2,}~', '/', $p);
+    return strtolower(trim($p, '/'));
+}
+
+/**
+ * Scanne app/views et construit une map "route -> fichier"
+ * Règles:
+ * - views/home.php              -> "/"  et "/home"
+ * - views/login.php             -> "/login"
+ * - views/dashboard/index.php   -> "/dashboard" et "/dashboard/index"
+ * - views/admin/users.php       -> "/admin/users"
+ */
+function buildRouteMap(string $viewsDir): array {
+    $routes = [];
+    $it = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($viewsDir, FilesystemIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::SELF_FIRST
+    );
+    foreach ($it as $file) {
+        /** @var SplFileInfo $file */
+        if (!$file->isFile() || !preg_match('~\.php$~i', $file->getFilename())) continue;
+
+        $abs  = $file->getPathname();
+        $rel  = substr($abs, strlen($viewsDir)); // "/foo/bar.php"
+        $rel  = ltrim($rel, '/\\');
+        $slug = slugifyPath($rel);              // "foo/bar" | "home" | "dashboard/index"
+
+        // Route principale
+        $route = '/' . $slug;                   // "/foo/bar"
+        $routes[$route] = $abs;
+
+        // Alias: ".../index" -> sans /index
+        if (str_ends_with($slug, '/index')) {
+            $routes['/' . substr($slug, 0, -strlen('/index'))] = $abs; // "/dashboard"
+        }
+
+        // Alias: "home.php" -> "/"
+        if ($slug === 'home') {
+            $routes['/'] = $abs;
+        }
+    }
+    // pour confort: si on n'a pas "/" mais on a "index.php" à la racine -> alias "/"
+    if (!isset($routes['/']) && isset($routes['/index'])) {
+        $routes['/'] = $routes['/index'];
+    }
+    return $routes;
+}
+
+/* ---- Construit la table de routes à la volée ---- */
+$ROUTES = buildRouteMap(VIEW_PATH);
+
+/* ---- Résolution de l’URL ---- */
+$reqPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
+if ($BASE_URL !== '/' && str_starts_with($reqPath, $BASE_URL)) {
+    $reqPath = substr($reqPath, strlen($BASE_URL));
+}
+$reqPath = '/' . ltrim($reqPath, '/');  // normalisé
+
+// Compatibilité ?page=login (ex: sans .htaccess)
+if (($reqPath === '/' || $reqPath === '') && !empty($_GET['page'])) {
+    $page = strtolower(trim((string)$_GET['page'], '/ '));
+    $page = preg_replace('~\.php$~i', '', $page);
+    $reqPath = '/' . $page;
+}
+
+/* ---- Recherche du fichier à servir ---- */
+$target = $ROUTES[$reqPath]
+        ?? ($ROUTES[$reqPath . '/index'] ?? null) // ex: "/foo" -> "/foo/index"
+        ?? null;
+
+if (!$target || !is_file($target)) {
+    http_response_code(404);
+    echo "404 — Page non trouvée";
+    exit;
+}
+
+/* ---- Rend la vue (plein HTML, pas de layout/partials) ---- */
+$BASE = $BASE_URL; // dispo dans les vues pour les assets/liens
+$BASE_URL = $BASE; // alias fréquent
+require $target;
+exit;

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>DashMed - Dashboard</title>
-    <link rel="stylesheet" href="assets/css/themes/light.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/dash.css">
+    <link rel="stylesheet" href="../../public/assets/css/themes/light.css">
+    <link rel="stylesheet" href="../../public/assets/css/style.css">
+    <link rel="stylesheet" href="../../public/assets/css/dash.css">
 </head>
 <body>
 
@@ -15,13 +15,13 @@
     </section>
 
     <section class="tabs">
-        <a href="#" id="active"><img src="assets/img/icons/dashboard.svg" alt=""></a>
-        <a href="#"><img src="assets/img/icons/ecg.svg" alt=""></a>
-        <a href="#"><img src="assets/img/icons/patient-record.svg" alt=""></a>
+        <a href="#" id="active"><img src="../../public/assets/img/icons/dashboard.svg" alt=""></a>
+        <a href="#"><img src="../../public/assets/img/icons/ecg.svg" alt=""></a>
+        <a href="#"><img src="../../public/assets/img/icons/patient-record.svg" alt=""></a>
     </section>
 
     <section class="login">
-        <a href="/login.php"><img src="assets/img/icons/logout.svg" alt=""></a>
+        <a href="/login.php"><img src="../../public/assets/img/icons/logout.svg" alt=""></a>
     </section>
 </nav>
 
@@ -69,6 +69,5 @@
         </article>
     </section>
 </main>
-
 </body>
 </html>

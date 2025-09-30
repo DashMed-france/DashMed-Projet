@@ -18,8 +18,15 @@ html, body {
   height: 100%; 
 }
 
+body{
+  background-image: url("../img/fond.svg");
+  background-size: 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
 .page-surface{ 
-    min-height:100%;
+  min-height:100%;
 }
 
 .nav-fixed{
@@ -60,13 +67,6 @@ html, body {
   padding: 6px;    
 }
 
-.brand-mini{
-  font-size:12px;
-  margin-top:2px;
-  color:#ffffff;
-  font-weight:700;
-}
-
 .nav-links{
   display:flex; 
   align-items:center;
@@ -87,7 +87,6 @@ html, body {
   padding:6px 12px;
   border-radius:12px;
   font-weight:700;
-  justify-self: center;  
 }
 
 .nav-actions{
@@ -115,7 +114,6 @@ html, body {
 }
 
 .paper{
-  background: var(--paper);
   position: relative;
   min-height: 100dvh;  
   width: 100vw;
@@ -132,38 +130,6 @@ html, body {
   text-align:center;
 }
 
-.fond {
-  position: absolute;
-  left: 0;
-  width: 100vw;
-  height: auto;
-  pointer-events: none; 
-  z-index: 0;          
-}
-
-.fond-top {
-  top: 0; 
-  transform: scaleY(-1);
-}
-
-.fond-bottom { 
-  bottom: 0%; 
-}
-
-@media (min-width:1280px){
-  .fond{ max-height:190px; }
-  .fond-bottom{ bottom:0; transform:translateY(10px); }
-  .container{ padding-bottom:260px; }
-}
-
-.hero, 
-.content,
-.title,
-.subtitle {
-  position: relative;
-  z-index: 1;
-}
-
 .title{
   font-size:clamp(44px,6vw,66px);
   font-weight:800;
@@ -171,7 +137,7 @@ html, body {
 }
 
 .title .med{ 
-    color: var(--blue); 
+  color: var(--blue); 
 }
 
 .subtitle{
@@ -186,6 +152,5 @@ html, body {
   line-height:1.8;
   color:#222;
 }
-.content p{ 
-    margin-bottom:18px; 
-}
+
+

@@ -82,7 +82,7 @@ class signinView
                 <?php endif; ?>
 
                 <section class="buttons">
-                    <a class="neg" href="?page=home">Annuler</a>
+                    <a class="neg" href="?page=homepage">Annuler</a>
                     <button class="pos" type="submit">Créer le compte</button>
                 </section>
             </section>

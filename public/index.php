@@ -45,6 +45,13 @@ if ($BASE_URL === '' || $BASE_URL === '\\') $BASE_URL = '/';
 
 $reqPath = resolveRequestPath($BASE_URL);
 
+/** REDIRECT ROOT → /homepage (quoi qu'il arrive) */
+if ($reqPath === '/' || $reqPath === '') {
+    $target = rtrim($BASE_URL, '/') . '/?page=homepage';
+    header('Location: ' . $target, true, 302);
+    exit;
+}
+
 $Page       = pathToPage($reqPath);
 $ctrlClass  = "modules\\controllers\\{$Page}Controller";
 $httpAction = httpMethodToAction($_SERVER['REQUEST_METHOD'] ?? 'GET');

@@ -22,7 +22,7 @@ class LoginController
     public function get(): void
     {
         if ($this->isUserLoggedIn()) {
-            header('Location: /dashboard');
+            header('Location: /?page=dashboard');
             exit;
         }
         if (empty($_SESSION['_csrf'])) {
@@ -35,7 +35,7 @@ class LoginController
     {
         if (isset($_SESSION['_csrf'], $_POST['_csrf']) && !hash_equals($_SESSION['_csrf'], (string)$_POST['_csrf'])) {
             $_SESSION['error'] = "Requête invalide. Réessaye.";
-            header('Location: /login');
+            header('Location: /?page=login');
             exit;
         }
 
@@ -44,14 +44,14 @@ class LoginController
 
         if ($email === '' || $password === '') {
             $_SESSION['error'] = "Email et mot de passe sont requis.";
-            header('Location: /login');
+            header('Location: /?page=login');
             exit;
         }
 
         $user = $this->model->verifyCredentials($email, $password);
         if (!$user) {
             $_SESSION['error'] = "Identifiants incorrects.";
-            header('Location: /login');
+            header('Location: /?page=login');
             exit;
         }
 
@@ -63,7 +63,7 @@ class LoginController
         $_SESSION['admin_status'] = (int)$user['admin_status'];
         $_SESSION['username']     = $user['email'];
 
-        header('Location: /homepage');
+        header('Location: /?page=homepage');
         exit;
     }
 
@@ -79,7 +79,7 @@ class LoginController
         }
         session_destroy();
 
-        header('Location: /login');
+        header('Location: /?page=login');
         exit;
     }
 

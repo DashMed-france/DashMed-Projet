@@ -10,7 +10,6 @@ class signinView
     {
         $csrf = $_SESSION['_csrf'] ?? '';
 
-        // Récupération/flash des erreurs et des anciennes valeurs
         $error = $_SESSION['error'] ?? '';
         unset($_SESSION['error']);
 
@@ -90,7 +89,6 @@ class signinView
         </form>
 
         <script>
-            // Toggle visibilité mot de passe
             document.querySelectorAll('.toggle').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const id = btn.getAttribute('data-target');

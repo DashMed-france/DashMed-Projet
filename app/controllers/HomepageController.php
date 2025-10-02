@@ -9,7 +9,7 @@ class homepageController
     public function get(): void
     {
         if ($this->isUserLoggedIn()) {
-            header('Location: /dashboard');
+            header('Location: /?page=dashboard');
             exit;
         }
         $view = new homepageView();

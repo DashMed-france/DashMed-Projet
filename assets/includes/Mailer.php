@@ -32,7 +32,7 @@ final class Mailer
         } else {
             $this->m->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         }
-        
+
         if (!empty($user)) {
             $this->m->setFrom($user, 'Support');
         }

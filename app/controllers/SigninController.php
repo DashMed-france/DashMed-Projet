@@ -24,7 +24,7 @@ class SigninController
     public function get(): void
     {
         if ($this->isUserLoggedIn()) {
-            header('Location: /dashboard');
+            header('Location: /?page=dashboard');
             exit;
         }
         if (empty($_SESSION['_csrf'])) {
@@ -101,7 +101,7 @@ class SigninController
         $_SESSION['admin_status'] = 0;
         $_SESSION['username']     = $email;
 
-        header('Location: /?page=home');
+        header('Location: /?page=homepage');
         exit;
     }
 

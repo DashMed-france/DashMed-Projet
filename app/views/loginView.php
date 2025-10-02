@@ -19,7 +19,7 @@ class loginView
             <link id="theme" rel="stylesheet" href="assets/css/themes/light.css">
         </head>
         <body>
-        <form action="/login" method="post" novalidate>
+        <form action="/?page=login" method="post" novalidate>
             <h1>Se connecter</h1>
             <section>
                 <article>

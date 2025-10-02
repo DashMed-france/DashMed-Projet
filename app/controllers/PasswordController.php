@@ -152,7 +152,7 @@ class passwordController
         $this->pdo->commit();
 
         $_SESSION['pw_msg'] = ['type'=>'success','text'=>'Mot de passe mis à jour. Vous pouvez vous connecter.'];
-        header('Location: /?page=signin');
+        header('Location: /?page=login');
     }
 
     private function isUserLoggedIn(): bool

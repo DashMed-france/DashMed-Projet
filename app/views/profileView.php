@@ -33,6 +33,7 @@ class profileView
                 </div>
             <?php endif; ?>
 
+            <!-- FORMULAIRE MISE À JOUR PROFIL -->
             <form action="/?page=profile" method="post" class="profile-form">
                 <input type="hidden" name="csrf" value="<?= $h($_SESSION['csrf_profile'] ?? '') ?>">
 
@@ -77,8 +78,16 @@ class profileView
                     <button type="submit" class="pos">Enregistrer les modifications</button>
                 </section>
             </form>
-        </main>
 
+            <!-- ZONE DANGEREUSE : SUPPRESSION DE COMPTE -->
+            <form action="/?page=profile" method="post" class="danger-zone"
+                  onsubmit="return confirm('⚠️ Cette action est irréversible. Confirmer la suppression de votre compte ?');">
+                <input type="hidden" name="csrf" value="<?= $h($_SESSION['csrf_profile'] ?? '') ?>">
+                <input type="hidden" name="action" value="delete_account">
+                <button type="submit" class="btn-danger">Supprimer mon compte</button>
+                <small class="danger-help">Cette action supprimera définitivement votre compte.</small>
+            </form>
+        </main>
         </body>
         </html>
         <?php

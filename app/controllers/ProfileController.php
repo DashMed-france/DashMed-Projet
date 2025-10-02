@@ -38,13 +38,22 @@ class profileController
             header('Location: /?page=signin'); exit;
         }
 
+        // CSRF pour toutes les actions POST de la page profil
         if (!isset($_POST['csrf']) || !hash_equals($_SESSION['csrf_profile'] ?? '', $_POST['csrf'])) {
             $_SESSION['profile_msg'] = ['type'=>'error','text'=>'Session expirée, réessayez.'];
             header('Location: /?page=profile'); exit;
         }
 
-        $first = trim($_POST['first_name'] ?? '');
-        $last  = trim($_POST['last_name'] ?? '');
+        $action = $_POST['action'] ?? 'update';
+
+        if ($action === 'delete_account') {
+            $this->handleDeleteAccount();
+            return; // handleDeleteAccount fait le redirect
+        }
+
+        // ----- Mise à jour du profil (action par défaut)
+        $first  = trim($_POST['first_name'] ?? '');
+        $last   = trim($_POST['last_name'] ?? '');
         $profId = $_POST['profession_id'] ?? null;
 
         if ($first === '' || $last === '') {
@@ -77,6 +86,46 @@ class profileController
 
         $_SESSION['profile_msg'] = ['type'=>'success','text'=>'Profil mis à jour ✅'];
         header('Location: /?page=profile'); exit;
+    }
+
+    private function handleDeleteAccount(): void
+    {
+        $email = $_SESSION['email'] ?? null;
+        if (!$email) {
+            header('Location: /?page=signin'); exit;
+        }
+
+        try {
+            $this->pdo->beginTransaction();
+
+            // TODO: si tu as d'autres tables liées (dossiers, logs, etc.),
+            // supprime-les ici ou assure-toi que tes FK aient ON DELETE CASCADE.
+            $del = $this->pdo->prepare("DELETE FROM users WHERE email = :e");
+            $del->execute([':e' => $email]);
+
+            $this->pdo->commit();
+
+        } catch (\Throwable $e) {
+            $this->pdo->rollBack();
+            error_log('[Profile] Delete account failed: '.$e->getMessage());
+            $_SESSION['profile_msg'] = [
+                'type' => 'error',
+                'text' => "Impossible de supprimer le compte (contraintes en base ?)."
+            ];
+            header('Location: /?page=profile'); exit;
+        }
+
+        // Déconnexion propre
+        $_SESSION = [];
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time()-42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+        }
+        session_destroy();
+
+        // Redirection après suppression
+        header('Location: /?page=signin'); // ou '/homepage'
+        exit;
     }
 
     private function getUserByEmail(string $email): ?array

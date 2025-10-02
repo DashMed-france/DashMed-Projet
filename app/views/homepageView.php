@@ -27,7 +27,7 @@ class homepageView
                         <img src="assets/img/icons/logo.png" alt="Logo DashMed" class="brand-logo">
                     </div>
                     <ul class="nav-links">
-                        <li><a href="?page=home">Accueil</a></li>
+                        <li><a href="?page=homepage">Accueil</a></li>
                         <li><a href="#">A&nbsp;propos</a></li>
                         <li class="nav-time" id="clock">69:69</li>
                     </ul>

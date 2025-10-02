@@ -1,98 +1,81 @@
 <?php
 declare(strict_types=1);
+
 session_start();
 
-/* ---- Réglages ---- */
-define('APP_PATH', dirname(__DIR__) . '/app');
-define('VIEW_PATH', APP_PATH . '/views');
+$ROOT = dirname(__DIR__);
+require $ROOT . '/vendor/autoload.php';
 
-// Base URL auto (si ton app est dans un sous-dossier)
-$BASE_URL = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+function pathToPage(string $path): string {
+    $trim = trim($path, '/');
+    if ($trim === '' || $trim === 'home') return 'homepage';
+    $parts = preg_split('~[/-]+~', $trim, -1, PREG_SPLIT_NO_EMPTY);
+    $studly = array_map(fn($p) => ucfirst(strtolower($p)), $parts);
+    return implode('', $studly);
+}
+
+function resolveRequestPath(string $baseUrl = '/'): string {
+    $reqPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '/';
+    if ($baseUrl !== '/' && str_starts_with($reqPath, $baseUrl)) {
+        $reqPath = substr($reqPath, strlen($baseUrl));
+    }
+    $reqPath = '/' . ltrim($reqPath, '/');
+
+    if (($reqPath === '/' || $reqPath === '') && isset($_GET['page'])) {
+        $reqPath = '/' . trim((string)$_GET['page'], '/ ');
+    }
+    return $reqPath;
+}
+
+function httpMethodToAction(string $method): string {
+    $m = strtolower($method);
+    return match ($m) {
+        'get'    => 'get',
+        'post'   => 'post',
+        'put'    => 'put',
+        'patch'  => 'patch',
+        'delete' => 'delete',
+        'head'   => 'head',
+        default  => 'get',
+    };
+}
+
+$BASE_URL = rtrim(dirname($_SERVER['SCRIPT_NAME'] ?? '/'), '/');
 if ($BASE_URL === '' || $BASE_URL === '\\') $BASE_URL = '/';
 
-/* ---- Utilitaires ---- */
-function slugifyPath(string $relPath): string {
-    // ex: "Blog/Index.php" -> "blog/index"
-    $p = str_replace('\\', '/', $relPath);
-    $p = preg_replace('~\.php$~i', '', $p);
-    $p = preg_replace('~/{2,}~', '/', $p);
-    return strtolower(trim($p, '/'));
-}
+$reqPath = resolveRequestPath($BASE_URL);
 
-/**
- * Scanne app/views et construit une map "route -> fichier"
- * Règles:
- * - views/home.php              -> "/"  et "/home"
- * - views/login.php             -> "/login"
- * - views/dashboard/index.php   -> "/dashboard" et "/dashboard/index"
- * - views/admin/users.php       -> "/admin/users"
- */
-function buildRouteMap(string $viewsDir): array {
-    $routes = [];
-    $it = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($viewsDir, FilesystemIterator::SKIP_DOTS),
-            RecursiveIteratorIterator::SELF_FIRST
-    );
-    foreach ($it as $file) {
-        /** @var SplFileInfo $file */
-        if (!$file->isFile() || !preg_match('~\.php$~i', $file->getFilename())) continue;
+$Page       = pathToPage($reqPath);
+$ctrlClass  = "modules\\controllers\\{$Page}Controller";
+$httpAction = httpMethodToAction($_SERVER['REQUEST_METHOD'] ?? 'GET');
 
-        $abs  = $file->getPathname();
-        $rel  = substr($abs, strlen($viewsDir)); // "/foo/bar.php"
-        $rel  = ltrim($rel, '/\\');
-        $slug = slugifyPath($rel);              // "foo/bar" | "home" | "dashboard/index"
-
-        // Route principale
-        $route = '/' . $slug;                   // "/foo/bar"
-        $routes[$route] = $abs;
-
-        // Alias: ".../index" -> sans /index
-        if (str_ends_with($slug, '/index')) {
-            $routes['/' . substr($slug, 0, -strlen('/index'))] = $abs; // "/dashboard"
-        }
-
-        // Alias: "home.php" -> "/"
-        if ($slug === 'home') {
-            $routes['/'] = $abs;
-        }
+try {
+    if (!class_exists($ctrlClass)) {
+        http_response_code(404);
+        echo "404 — Contrôleur introuvable: {$ctrlClass}";
+        exit;
     }
-    // pour confort: si on n'a pas "/" mais on a "index.php" à la racine -> alias "/"
-    if (!isset($routes['/']) && isset($routes['/index'])) {
-        $routes['/'] = $routes['/index'];
+
+    $controller = new $ctrlClass();
+
+    if (method_exists($controller, $httpAction)) {
+        $controller->{$httpAction}();
+        exit;
     }
-    return $routes;
-}
 
-/* ---- Construit la table de routes à la volée ---- */
-$ROUTES = buildRouteMap(VIEW_PATH);
+    if (method_exists($controller, 'index')) {
+        $controller->index();
+        exit;
+    }
 
-/* ---- Résolution de l’URL ---- */
-$reqPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
-if ($BASE_URL !== '/' && str_starts_with($reqPath, $BASE_URL)) {
-    $reqPath = substr($reqPath, strlen($BASE_URL));
-}
-$reqPath = '/' . ltrim($reqPath, '/');  // normalisé
+    http_response_code(405);
+    header('Allow: GET, POST, PUT, PATCH, DELETE, HEAD');
+    echo "405 — Méthode non autorisée pour {$ctrlClass}";
+    exit;
 
-// Compatibilité ?page=login (ex: sans .htaccess)
-if (($reqPath === '/' || $reqPath === '') && !empty($_GET['page'])) {
-    $page = strtolower(trim((string)$_GET['page'], '/ '));
-    $page = preg_replace('~\.php$~i', '', $page);
-    $reqPath = '/' . $page;
-}
-
-/* ---- Recherche du fichier à servir ---- */
-$target = $ROUTES[$reqPath]
-        ?? ($ROUTES[$reqPath . '/index'] ?? null) // ex: "/foo" -> "/foo/index"
-        ?? null;
-
-if (!$target || !is_file($target)) {
-    http_response_code(404);
-    echo "404 — Page non trouvée";
+} catch (Throwable $e) {
+    http_response_code(500);
+    echo $e->getMessage();
+    echo "500 — Erreur serveur.";
     exit;
 }
-
-/* ---- Rend la vue (plein HTML, pas de layout/partials) ---- */
-$BASE = $BASE_URL; // dispo dans les vues pour les assets/liens
-$BASE_URL = $BASE; // alias fréquent
-require $target;
-exit;

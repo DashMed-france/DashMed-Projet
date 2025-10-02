@@ -11,7 +11,7 @@ form{
     padding: 50px;
     gap: 30px;
     background-color: var(--theme-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow);
 
     h1{
         text-align: center;
@@ -32,23 +32,34 @@ form{
         background-color: var(--background-color);
         border-radius: 5px;
         border: none;
-        height: 1.5em;
+        height: 2em;
+        padding: 5px;
+        font-size: 1.2em;
     }
 
-    .pos, a{
+    .pos, .neg{
+        flex: 1 1 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
         border-radius: 18px;
-        padding: 10px;
-        border: solid 1 px var(--heavy-color);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        cursor: pointer;
-        width: 45%;
+        box-sizing: border-box;
+        border: 1px solid var(--heavy-color);
+        box-shadow: var(--shadow);
         font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
     }
 
     .pos{
          background-color: var(--primary-color);
          color: var(--theme-color);
+    }
+
+    .neg{
+        color: var(--primary-color);
+
     }
 
     .buttons{
@@ -67,4 +78,40 @@ form{
     margin: 5px;
     text-align: center;
     font-size: 2em;
+}
+
+.password{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    input{
+        width: 100%;
+    }
+
+    background-color: var(--background-color);
+    border-radius: 5px;
+    border: none;
+    height: 3em;
+    button{
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding-right: 1em;
+        img{
+            height: 50%;
+        }
+    }
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a{
+        text-decoration: none;
+        color: var(--primary-color);
+
+    }
 }

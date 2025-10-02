@@ -19,6 +19,6 @@ document.getElementById("codeForm").addEventListener("submit", e => {
     e.preventDefault();
     let code = Array.from(inputs).map(input => input.value).join('');
     if(code.length === inputs.length) {
-        window.location.href = "password.php";
+        window.location.href = "passwordView.php";
     }
 });

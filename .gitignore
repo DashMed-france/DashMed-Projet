@@ -1,0 +1,20 @@
+# IDE files
+.idea/
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Configuration files
+/config/*.php
+
+# Dependency directories
+/vendor/
+
+# Cache and logs
+*.log
+*.cache
+
+# Environment files
+.env

@@ -1,9 +1,6 @@
 <?php
 declare(strict_types=1);
 
-use PDO;
-use PDOException;
-
 final class Database
 {
     private static ?PDO $instance = null;

@@ -41,7 +41,7 @@ class loginView
                 <?php endif; ?>
 
                 <section class="buttons">
-                    <a class="neg" href="/home">Annuler</a>
+                    <a class="neg" href="/?page=homepage">Annuler</a>
                     <button class="pos" type="submit">Se connecter</button>
                 </section>
                 <section class="links">

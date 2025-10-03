@@ -35,7 +35,7 @@ class passwordView
                 <?php if (!$hasToken): ?>
                     <article>
                         <label for="email">Veuillez entrer votre email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
                     </article>
                     <article>
                         <button class="pos" type="submit" name="action" value="send_code">Recevoir le code</button>

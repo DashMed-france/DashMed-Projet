@@ -79,7 +79,6 @@ class profileView
                 </section>
             </form>
 
-            <!-- ZONE DANGEREUSE : SUPPRESSION DE COMPTE -->
             <form action="/?page=profile" method="post" class="danger-zone"
                   onsubmit="return confirm('⚠️ Cette action est irréversible. Confirmer la suppression de votre compte ?');">
                 <input type="hidden" name="csrf" value="<?= $h($_SESSION['csrf_profile'] ?? '') ?>">

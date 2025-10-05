@@ -90,17 +90,17 @@ class dashboardView
                 </section>
                 <section class="doctor-list">
                     <article>
-                        <img src="assets/img/icons/default_profile_icon.svg" alt="photo de profil">
+                        <img src="assets/img/icons/default-profile-icon.svg" alt="photo de profil">
                         <h1>Dr Alpes</h1>
                         <p>Administration d'anti douleurs</p>
                     </article>
                     <article>
-                        <img src="assets/img/icons/default_profile_icon.svg" alt="photo de profil">
+                        <img src="assets/img/icons/default-profile-icon.svg" alt="photo de profil">
                         <h1>Dr Alpes</h1>
                         <p>Administration d'anti douleurs</p>
                     </article>
                     <article>
-                        <img src="assets/img/icons/default_profile_icon.svg" alt="photo de profil">
+                        <img src="assets/img/icons/default-profile-icon.svg" alt="photo de profil">
                         <h1>Dr Alpes</h1>
                         <p>Administration d'anti douleurs</p>
                     </article>

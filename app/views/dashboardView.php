@@ -60,7 +60,8 @@ class dashboardView
                     </article>
                 </section>
             </section>
-            <aside>
+            <button id="aside-show-btn" onclick="toggleAside()">☰</button>
+            <aside id="aside">
                 <section class="patient-infos">
                     <h1>Marinette dupain-cheng</h1>
                     <p>18 ans</p>

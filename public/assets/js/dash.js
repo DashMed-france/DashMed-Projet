@@ -70,3 +70,9 @@ btnNext.addEventListener('click', () => {
     if (currentMonth > 11) { currentMonth = 0; currentYear++; }
     renderCalendar(currentYear, currentMonth);
 });
+
+const aside = document.getElementById('aside')
+const showAsideBtn = document.getElementById('aside-show-btn')
+function toggleAside() {
+    aside.classList.toggle('active-aside');
+}

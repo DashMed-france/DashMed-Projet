@@ -11,6 +11,7 @@ nav {
     height: 100vh;
     background-color: var(--theme-color);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 10px 30px rgba(0, 0, 0, .25);
+    z-index: 1000;
 
     border-top-right-radius: 18px;
     border-bottom-right-radius: 18px;
@@ -160,6 +161,7 @@ nav .login {
     .container {
         margin-left: 0;
         padding-top: 80px;
+        width: 100%;
     }
 
     .searchbar {
@@ -320,9 +322,12 @@ aside{
             align-items: center;
 
             padding: 20px;
-            width: 20%;
+            width: 30%;
             background: var(--theme-color);
             border-radius: 18px;
+
+            transition: all ease-in-out 0.3s;
+
             h1{
                 font-size: 1em;
                 color: var(--primary-color);
@@ -334,6 +339,11 @@ aside{
                 background: var(--background-color);
             }
             p{text-align: center}
+
+            &:hover{
+                transform: translateY(-4px);
+                box-shadow: 0 12px 28px rgba(0, 0, 0, .35);
+            }
         }
     }
 }
@@ -363,6 +373,7 @@ aside{
     &:hover{
         transform:translateY(-1px);
         box-shadow:0 6px 12px rgba(0,0,0,.08);
+        background: var(--background-color);
     }
 
     .num{font-weight:bold;}
@@ -385,4 +396,80 @@ aside{
     height:7px;
     border-radius:50%;
     background:var(--primary-color);
+}
+
+#aside-show-btn{
+    background: var(--theme-color);
+    display: none;
+    border: none;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    padding: 1em 0.1em 1em 0.5em;
+
+    position: fixed;
+
+    top: 50%;
+    right: 0;
+
+    font-size: 2em;
+}
+
+aside.active-aside{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    background: var(--background-color);
+    margin-top: 64px;
+    padding-top: 2em;
+    max-height: none;
+}
+
+@media (max-width: 1200px) {
+    .dashboard-content-container{
+        width: 50%;
+    }
+
+    .card{
+        width: 200px;
+    }
+
+    .cards-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media (max-width: 780px) {
+    #aside-show-btn{
+        display: block;
+        z-index: 100;
+    }
+
+    .card{
+        width: 240px;
+    }
+
+    .dashboard-content-container{
+        width: 100%;
+    }
+
+    nav{
+        border-radius: 0;
+        box-shadow: none;
+        section {
+            width: 30%;
+        }
+    }
+
+    .searchbar input{
+        width: 50%;
+    }
+
+    aside{
+        display: none;
+    }
 }

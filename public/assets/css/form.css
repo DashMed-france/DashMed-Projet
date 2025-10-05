@@ -38,6 +38,8 @@ form{
     }
 
     .pos, .neg{
+        all:unset;
+        font-family: Poppins, Verdana, sans-serif;
         flex: 1 1 0;
         display: inline-flex;
         align-items: center;
@@ -48,18 +50,27 @@ form{
         border: 1px solid var(--heavy-color);
         box-shadow: var(--shadow);
         font-weight: bold;
+        text-align: center;
         text-decoration: none;
         cursor: pointer;
+        transition: all ease-in-out 0.3s;
+        &:hover{
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .35);
+        }
     }
 
     .pos{
-         background-color: var(--primary-color);
-         color: var(--theme-color);
+        background-color: var(--primary-color);
+        color: var(--theme-color);
     }
 
     .neg{
         color: var(--primary-color);
-
+        &:hover{
+            background: var(--primary-color);
+            color: var(--theme-color);
+        }
     }
 
     .buttons{
@@ -68,6 +79,15 @@ form{
         justify-content: space-between;
         width: 100%;
     }
+
+    .buttons:has(.pos:hover, .neg:hover) .pos:not(:hover),
+    .buttons:has(.pos:hover, .neg:hover) .neg:not(:hover) {
+        opacity: .5;
+        transform: none;
+        background: var(--theme-color);
+        color: var(--primary-color);
+    }
+
 }
 
 .code-container input{
@@ -112,6 +132,12 @@ form{
     a{
         text-decoration: none;
         color: var(--primary-color);
+        text-align: center;
+    }
+}
 
+@media (max-width: 1000px) {
+    form{
+        width: 90%;
     }
 }

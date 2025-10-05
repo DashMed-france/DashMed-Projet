@@ -90,16 +90,6 @@ form{
 
 }
 
-.code-container input{
-    width: 1.5em ;
-    height: 2em;
-    border: 5px solid var(--heavy-color);
-    border-radius: 10px;
-    margin: 5px;
-    text-align: center;
-    font-size: 2em;
-}
-
 .password{
     display: flex;
     flex-direction: row;
@@ -136,8 +126,42 @@ form{
     }
 }
 
+.code-container{
+    display: flex;
+    align-items: center;
+    input {
+        width: 1.5em;
+        height: 2em;
+        border: 5px solid var(--heavy-color);
+        border-radius: 10px;
+        margin: 5px;
+        text-align: center;
+        font-size: 2em;
+    }
+}
+
+.line{
+    width: 2em;
+    padding: 5px;
+    height: 10px;
+    background: var(--heavy-color);
+    border-radius: 18px;
+}
+
 @media (max-width: 1000px) {
     form{
         width: 90%;
+        .code-container input {
+            width: 0.8em;
+            height: 1.5em;
+            border: 5px solid var(--heavy-color);
+            border-radius: 10px;
+            margin: 5px;
+            text-align: center;
+            font-size: 2em;
+        }
+        .line{
+            height: 1px;
+        }
     }
 }

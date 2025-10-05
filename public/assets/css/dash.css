@@ -130,8 +130,20 @@ nav .login {
     background: linear-gradient(180deg, #9aa5b1, #6b7280);
 }
 
+.container-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    form{
+        width: 50%;
+    }
+}
+
 
 @media (max-width: 780px) {
+    .container-form{
+        form{width: 80%}
+    }
     nav {
         top: 0;
         left: 0;

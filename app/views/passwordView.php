@@ -14,7 +14,7 @@ class passwordView
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="mot de passe" content="Page pour la réinitialisation du mot de passe.">
+            <meta name="description" content="Page pour la réinitialisation du mot de passe.">
             <title>DashMed - Réinitialisation mot de passe</title>
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/form.css">
@@ -50,6 +50,7 @@ class passwordView
                                 <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" class="code-digit" required>
                                 <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" class="code-digit" required>
                                 <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" class="code-digit" required>
+                                <div class="line"></div>
                                 <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" class="code-digit" required>
                                 <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" class="code-digit" required>
                                 <input type="text" maxlength="1" pattern="[0-9]" inputmode="numeric" class="code-digit" required>

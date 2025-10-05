@@ -24,7 +24,7 @@ class profileView
         <body>
         <?php include 'components/sidebar.php'; ?>
 
-        <main class="container">
+        <main class="container-form">
             <h1>Mon profil</h1>
 
             <?php if (is_array($msg) && isset($msg['text'])): ?>

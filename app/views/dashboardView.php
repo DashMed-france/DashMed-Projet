@@ -22,49 +22,91 @@ class dashboardView
 
         <main class="container">
 
-            <form class="searchbar" role="search" action="#" method="get">
-            <span class="left-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-                    <line x1="16.65" y1="16.65" x2="22" y2="22" stroke="currentColor" stroke-width="2"
-                          stroke-linecap="round"/>
-                </svg>
-            </span>
-                <input type="search" name="q" placeholder="Search..." aria-label="Rechercher"/>
-                <div class="actions">
-                    <button type="button" class="action-btn" aria-label="Notifications">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 22a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2Zm6-6V11a6 6 0 1 0-12 0v5l-2 2v1h16v-1l-2-2Z"
-                                  stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                    </button>
-                    <a href="/?page=profile">
-                        <div class="avatar" title="Profil" aria-label="Profil"><img src="" alt=""></div>
-                    </a>
-                </div>
-            </form>
+            <section class="dashboard-content-container">
+                <form class="searchbar" role="search" action="#" method="get">
+                    <span class="left-icon" aria-hidden="true">
+                        <img src="assets/img/icons/glass.svg">
+                    </span>
+                    <input type="search" name="q" placeholder="Search..." aria-label="Rechercher"/>
+                    <div class="actions">
+                        <button type="button" class="action-btn" aria-label="Notifications">
+                            <img src="assets/img/icons/bell.svg">
+                        </button>
+                        <a href="/?page=profile">
+                            <div class="avatar" title="Profil" aria-label="Profil"><img src="" alt=""></div>
+                        </a>
+                    </div>
+                </form>
 
-            <section class="cards-container">
-                <article class="card">
-                    <h3>Fréquence cardiaque</h3>
-                    <p class="value">72 bpm</p>
-                </article>
+                <section class="cards-container">
+                    <article class="card">
+                        <h3>Fréquence cardiaque</h3>
+                        <p class="value">72 bpm</p>
+                    </article>
 
-                <article class="card">
-                    <h3>Saturation O₂</h3>
-                    <p class="value">98 %</p>
-                </article>
+                    <article class="card">
+                        <h3>Saturation O₂</h3>
+                        <p class="value">98 %</p>
+                    </article>
 
-                <article class="card">
-                    <h3>Tension artérielle</h3>
-                    <p class="value">118/76 mmHg</p>
-                </article>
+                    <article class="card">
+                        <h3>Tension artérielle</h3>
+                        <p class="value">118/76 mmHg</p>
+                    </article>
 
-                <article class="card">
-                    <h3>Température</h3>
-                    <p class="value">36,7 °C</p>
-                </article>
+                    <article class="card">
+                        <h3>Température</h3>
+                        <p class="value">36,7 °C</p>
+                    </article>
+                </section>
             </section>
+            <aside>
+                <section class="patient-infos">
+                    <h1>Marinette dupain-cheng</h1>
+                    <p>18 ans</p>
+                    <p>Complications post-opératoires: Suite à une amputation de la jambe gauche</p>
+                </section>
+                <section class="calendar">
+                    <article class="current-month">
+                        <div class="selection-month">
+                            <button id="prev" type="button" aria-label="Mois précédent">‹</button>
+                            <div>
+                                <span id="month"></span>
+                                <span id="year"></span>
+                            </div>
+                            <button id="next" type="button" aria-label="Mois suivant">›</button>
+                        </div>
+                        <div class="day-list">
+                            <span>lun</span>
+                            <span>mar</span>
+                            <span>mer</span>
+                            <span>jeu</span>
+                            <span>ven</span>
+                            <span>sam</span>
+                            <span>dim</span>
+                        </div>
+                    </article>
+                    <article id="days"></article>
+                </section>
+                <section class="doctor-list">
+                    <article>
+                        <img src="assets/img/icons/default_profile_icon.svg" alt="photo de profil">
+                        <h1>Dr Alpes</h1>
+                        <p>Administration d'anti douleurs</p>
+                    </article>
+                    <article>
+                        <img src="assets/img/icons/default_profile_icon.svg" alt="photo de profil">
+                        <h1>Dr Alpes</h1>
+                        <p>Administration d'anti douleurs</p>
+                    </article>
+                    <article>
+                        <img src="assets/img/icons/default_profile_icon.svg" alt="photo de profil">
+                        <h1>Dr Alpes</h1>
+                        <p>Administration d'anti douleurs</p>
+                    </article>
+                </section>
+            </aside>
+            <script src="assets/js/dash.js"></script>
         </main>
         </body>
         </html>

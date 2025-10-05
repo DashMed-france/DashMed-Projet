@@ -54,6 +54,8 @@ nav .login {
 .container {
     margin-left: calc(var(--sidebar-w) + 16px);
     padding: 24px 24px 40px;
+    display: flex;
+    gap: 1em;
 }
 
 .searchbar {
@@ -61,8 +63,8 @@ nav .login {
     display: flex;
     align-items: center;
     gap: 12px;
+    box-sizing: border-box;
     width: 100%;
-    max-width: 700px;
     margin: 8px 0 24px;
     padding: 12px 16px 12px 44px;
     background: #fff;
@@ -175,6 +177,9 @@ nav .login {
     margin-top: 0;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    width: 95%;
+    gap: 1em; /* Gap minimal */
 }
 
 .card {
@@ -228,3 +233,156 @@ nav .login {
     background: #ef4444; color: #fff; font-weight: 700; }
 .btn-danger:hover { background: #b91c1c; }
 .danger-help { color: #7f1d1d; font-size: .9rem; }
+
+.dashboard-content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+}
+
+aside{
+    width: 30%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    overflow: auto;
+
+    section{
+        border-radius: 18px;
+    }
+
+    .patient-infos{
+        h1{color: var(--primary-color);}
+        background: var(--theme-color);
+        box-shadow: var(--shadow);
+        padding: 20px;
+    }
+
+    .calendar{
+        background: var(--theme-color);
+        box-shadow: var(--shadow);
+
+        .current-month{
+            display: flex;
+            flex-direction: column;
+            border-top-right-radius: 18px;
+            border-top-left-radius: 18px;
+            padding-bottom: 10px;
+
+            background: var(--primary-color);
+            color: var(--theme-color);
+
+            .day-list{
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .selection-month{
+                display: flex;
+                justify-content: space-between;
+
+                button{
+                    background: none;
+                    width: 20%;
+                    font-size: 4em;
+                    color: var(--theme-color);
+                    border: none;
+                    cursor: pointer;
+                }
+
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    span{
+                        text-align: center;
+                    }
+                    #month{font-size: 2em}
+                }
+            }
+        }
+    }
+
+    .doctor-list{
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        article{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            padding: 20px;
+            width: 20%;
+            background: var(--theme-color);
+            border-radius: 18px;
+            h1{
+                font-size: 1em;
+                color: var(--primary-color);
+            }
+            img{
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                background: var(--background-color);
+            }
+            p{text-align: center}
+        }
+    }
+}
+
+#days{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:6px;
+    padding:6px;
+    border-radius:18px;
+}
+
+.day{
+    appearance:none;
+    border:none;
+    background: none;
+    border-radius:12px;
+    padding:10px 0px;
+    min-height:54px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    position:relative;
+    cursor:pointer;
+    transition: all ease-in-out 0.3s;
+
+    &:hover{
+        transform:translateY(-1px);
+        box-shadow:0 6px 12px rgba(0,0,0,.08);
+    }
+
+    .num{font-weight:bold;}
+}
+
+.other-month .num{ color:var(--secondary-color); }
+
+.today{
+    background:var(--primary-color);
+    color: var(--theme-color);
+}
+
+.has-event::after{
+    content:"";
+    position:absolute;
+    bottom:8px;
+    left:50%;
+    transform:translateX(-50%);
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--primary-color);
+}

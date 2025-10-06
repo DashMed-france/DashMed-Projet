@@ -93,17 +93,14 @@ class dashboardView
                     <article>
                         <img src="assets/img/icons/default-profile-icon.svg" alt="photo de profil">
                         <h1>Dr Alpes</h1>
-                        <p>Administration d'anti douleurs</p>
                     </article>
                     <article>
                         <img src="assets/img/icons/default-profile-icon.svg" alt="photo de profil">
                         <h1>Dr Alpes</h1>
-                        <p>Administration d'anti douleurs</p>
                     </article>
                     <article>
                         <img src="assets/img/icons/default-profile-icon.svg" alt="photo de profil">
                         <h1>Dr Alpes</h1>
-                        <p>Administration d'anti douleurs</p>
                     </article>
                 </section>
             </aside>

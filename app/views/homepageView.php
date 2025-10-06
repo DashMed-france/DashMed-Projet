@@ -13,7 +13,7 @@ class homepageView
         <head>
             <meta charset="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <title>DashMed — Gérez facilement vos patients</title>
+            <title>DashMed — Accueil</title>
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/themes/light.css">
             <link rel="stylesheet" href="assets/css/home.css" />
@@ -45,7 +45,7 @@ class homepageView
         <main class="container">
             <section class="hero">
                 <h1 class="title">
-                    <span id="dash">Dash</span><span style="color: blue">Med</span>
+                    <span id="dash">Dash</span><span style="color: var(--primary-color)">Med</span>
                 </h1>
                 <p class="subtitle">Gérez facilement vos patients</p>
             </section>
@@ -72,13 +72,12 @@ class homepageView
                     <article class="mentions-legales">
                         <h1>Mentions légales</h1>
                         <p>Les icones de ce site proviennent de <a href="https://www.flaticon.com/fr/" target="_blank">Flaticon</a>.</p>
-                        <p>Nous ne possédons pas les droits de ces images et ne les revendicons aucunement.</p>
                     </article>
                     <article>
                         <p>© DashMed — <span id="year"></span> · Tous droits réservés</p>
                     </article>
                     <article>
-                        <a href="/?page=plan" class="btn btn-primary">Plan du site</a>
+                        <p><a href="/?page=plan" class="btn btn-primary">Plan du site</a></p>
                     </article>
                 </section>
             </section>

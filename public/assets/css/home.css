@@ -11,7 +11,7 @@ body{
 }
 
 .nav-fixed{
-    position: fixed;
+    position: absolute;
     top: 12px;
     left:0;
     right:0;
@@ -32,7 +32,12 @@ body{
     color: var(--text-color);
     position: relative;
 
-    section{display: flex}
+    section{
+        display: flex;
+        p{
+            font-size: 1.2em;
+        }
+    }
 }
 
 .brand{
@@ -64,7 +69,6 @@ body{
 
 .nav-links a{
     text-decoration:none;
-    font-weight:700;
     color:var(--theme-color);
 }
 
@@ -76,7 +80,6 @@ body{
     color: var(--theme-color);
     padding:6px 12px;
     border-radius:12px;
-    font-weight:700;
     white-space: nowrap;
     z-index: 1;
 }
@@ -92,7 +95,6 @@ body{
     justify-content:center;
     height:34px; padding:0 14px;
     border-radius:999px;
-    font-weight:700;
     text-decoration:none;
     color:var(--theme-color);
 }
@@ -129,7 +131,7 @@ body{
     width: 60%;
     text-align:center;
     section p{
-        font-size: 1.3em;
+        font-size: 1em;
     }
 }
 
@@ -143,7 +145,7 @@ body{
 
 .title{
     font-size:clamp(44px,6vw,66px);
-    font-weight:800;
+    font-weight:500;
     margin:20px 0 10px;
 }
 
@@ -197,18 +199,19 @@ footer{
 .footer{
     color: var(--theme-color);
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    width: 60%;
+    width: 80%;
     article{
         display: flex;
         flex-direction: column;
 
     }
     .mentions-legales{
+        h1{margin: 0}
         a{
             font-weight: bold;
-            color: var(--secondary-color);
+            color: var(--theme-color);
         }
     }
 }

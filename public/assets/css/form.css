@@ -1,5 +1,6 @@
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -47,7 +48,6 @@ form{
         padding: 10px 16px;
         border-radius: 18px;
         box-sizing: border-box;
-        border: 1px solid var(--heavy-color);
         box-shadow: var(--shadow);
         font-weight: bold;
         text-align: center;
@@ -55,7 +55,7 @@ form{
         cursor: pointer;
         transition: all ease-in-out 0.3s;
         &:hover{
-            transform: translateY(-4px);
+            transform: translateY(-2px);
             box-shadow: 0 12px 28px rgba(0, 0, 0, .35);
         }
     }
@@ -96,7 +96,7 @@ form{
     justify-content: space-between;
 
     input{
-        width: 100%;
+        min-width: 90%;
     }
 
     background-color: var(--background-color);
@@ -104,10 +104,14 @@ form{
     border: none;
     height: 3em;
     button{
+        all:unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
         border: none;
         background: none;
         cursor: pointer;
-        padding-right: 1em;
         img{
             height: 50%;
         }
@@ -129,38 +133,37 @@ form{
 .code-container{
     display: flex;
     align-items: center;
+    gap: 0.5em;
+    justify-content: center;
     input {
-        width: 1.5em;
-        height: 2em;
-        border: 5px solid var(--heavy-color);
-        border-radius: 10px;
-        margin: 5px;
+        width: 1.4em;
+        height: 2.1em;
+        border: 2px solid var(--heavy-color);
+        border-radius: 8px;
         text-align: center;
-        font-size: 2em;
+        font-size: 1.5em;
     }
 }
 
 .line{
-    width: 2em;
-    padding: 5px;
-    height: 10px;
+    width: 15px;
+    height: 1.3px;
+    padding: 1px;
     background: var(--heavy-color);
-    border-radius: 18px;
+    border-radius: 10px;
 }
 
 @media (max-width: 1000px) {
     form{
         width: 90%;
         .code-container input {
-            width: 0.8em;
-            height: 1.5em;
-            border: 5px solid var(--heavy-color);
-            border-radius: 10px;
-            margin: 5px;
-            text-align: center;
-            font-size: 2em;
+            width: 1.8em;
+            height: 2.2em;
+            border-radius: 6px;
+            font-size: 1.2em;
         }
         .line{
+            width: 15px;
             height: 1px;
         }
     }

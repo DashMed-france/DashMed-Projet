@@ -64,14 +64,11 @@ class passwordView
                         <input type="password" id="password" name="password" minlength="8" required>
                     </article>
 
-                    <article>
+                    <article class="buttons">
+                        <a class="neg" href="/?page=login">Annuler</a>
                         <button class="pos" id="valider" type="submit" name="action" value="reset_password">Valider</button>
                     </article>
                 <?php endif; ?>
-
-                <section>
-                    <a class="neg" href="/?page=signin">Annuler</a>
-                </section>
             </section>
         </form>
 

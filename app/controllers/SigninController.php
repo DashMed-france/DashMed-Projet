@@ -1,4 +1,15 @@
 <?php
+/**
+ * DashMed — Sign-in/Registration Controller
+ *
+ * This file defines the controller responsible for rendering the sign-in/registration
+ * view and handling form submissions to create a new user account.
+ *
+ * @package   DashMed\Modules\Controllers
+ * @author    DashMed Team
+ * @license   Proprietary
+ * @link      /?page=signin
+ */
 declare(strict_types=1);
 
 namespace modules\controllers;
@@ -8,10 +19,34 @@ use modules\views\signinView;
 
 require_once __DIR__ . '/../../assets/includes/database.php';
 
+
+/**
+ * Handles the sign-in (registration) flow.
+ *
+ * Responsibilities:
+ *  - Start a session (if not already started)
+ *  - Provide the GET endpoint to display the sign-in form
+ *  - Provide the POST endpoint to validate input and create a user
+ *  - Redirect authenticated users to the dashboard
+ *
+ * @see \modules\models\signinModel
+ * @see \modules\views\signinView
+ */
 class SigninController
 {
+    /**
+     * Business logic/model for sign-in/registration operations.
+     *
+     * @var signinModel
+     */
     private signinModel $model;
 
+    /**
+     * Controller constructor.
+     *
+     * Starts the session if needed, retrieves a shared PDO instance via the
+     * Database helper, and instantiates the sign-in model.
+     */
     public function __construct()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -21,6 +56,14 @@ class SigninController
         $this->model = new signinModel($pdo);
     }
 
+    /**
+     * HTTP GET handler.
+     *
+     * If a user session already exists, redirects to the dashboard. Otherwise,
+     * ensures a CSRF token is available and renders the sign-in view.
+     *
+     * @return void
+     */
     public function get(): void
     {
         if ($this->isUserLoggedIn()) {
@@ -33,6 +76,19 @@ class SigninController
         (new signinView())->show();
     }
 
+    /**
+     * HTTP POST handler.
+     *
+     * Validates submitted form fields (names, email, password & confirmation),
+     * enforces basic password policy, checks email uniqueness, and delegates
+     * account creation to the model. On success, seeds the session and redirects
+     * the user; on failure, stores an error message and preserves old input.
+     *
+     * Uses header-based redirects and session flash data to communicate
+     * validation outcomes.
+     *
+     * @return void
+     */
     public function post(): void
     {
         error_log('[SigninController] POST /signin hit');
@@ -105,6 +161,11 @@ class SigninController
         exit;
     }
 
+    /**
+     * Indicates whether a user is considered logged in for the current session.
+     *
+     * @return bool True if a user email exists in the session; false otherwise.
+     */
     private function isUserLoggedIn(): bool
     {
         return isset($_SESSION['email']);

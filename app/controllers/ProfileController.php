@@ -6,16 +6,32 @@ use PDO;
 
 require_once __DIR__ . '/../../assets/includes/database.php';
 
+/**
+ * Contrôleur de gestion du profil utilisateur.
+ */
 class profileController
 {
+    /**
+     * Instance PDO pour l'accès à la base de données.
+     *
+     * @var PDO
+     */
     private PDO $pdo;
 
+    /**
+     * Initialise le contrôleur et la connexion à la base de données.
+     */
     public function __construct()
     {
         $this->pdo = \Database::getInstance();
         if (session_status() !== PHP_SESSION_ACTIVE) session_start();
     }
 
+    /**
+     * Affiche la page de profil utilisateur.
+     *
+     * @return void
+     */
     public function get(): void
     {
         if (!$this->isUserLoggedIn()) {
@@ -32,6 +48,11 @@ class profileController
         $view->show($user, $specialties, $msg);
     }
 
+    /**
+     * Traite la soumission du formulaire de profil (mise à jour ou suppression).
+     *
+     * @return void
+     */
     public function post(): void
     {
         if (!$this->isUserLoggedIn()) {
@@ -73,7 +94,7 @@ class profileController
         }
 
         $upd = $this->pdo->prepare("
-            UPDATE users 
+            UPDATE users
                SET first_name = :f, last_name = :l, profession_id = :p
              WHERE email = :e
         ");
@@ -88,6 +109,11 @@ class profileController
         header('Location: /?page=profile'); exit;
     }
 
+    /**
+     * Gère la suppression du compte utilisateur.
+     *
+     * @return void
+     */
     private function handleDeleteAccount(): void
     {
         $email = $_SESSION['email'] ?? null;
@@ -128,6 +154,12 @@ class profileController
         exit;
     }
 
+    /**
+     * Récupère les informations de l'utilisateur par email.
+     *
+     * @param string $email
+     * @return array|null
+     */
     private function getUserByEmail(string $email): ?array
     {
         $sql = "SELECT u.first_name, u.last_name, u.email, u.profession_id,
@@ -140,12 +172,22 @@ class profileController
         return $st->fetch(PDO::FETCH_ASSOC) ?: null;
     }
 
+    /**
+     * Récupère la liste de toutes les spécialités médicales.
+     *
+     * @return array
+     */
     private function getAllSpecialties(): array
     {
         $st = $this->pdo->query("SELECT id, name FROM medical_specialties ORDER BY name");
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Vérifie si l'utilisateur est connecté.
+     *
+     * @return bool
+     */
     private function isUserLoggedIn(): bool
     {
         return isset($_SESSION['email']);

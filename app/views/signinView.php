@@ -1,11 +1,38 @@
 <?php
+/**
+ * DashMed — Sign-in View
+ *
+ * Displays the registration form allowing new users to create an account.
+ * Includes CSRF protection, password confirmation fields, and validation error handling.
+ *
+ * @package   DashMed\Modules\Views
+ * @author    DashMed Team
+ * @license   Proprietary
+ */
 // app/views/signinView.php
 declare(strict_types=1);
 
 namespace modules\views;
 
+/**
+ * Renders the sign-up (registration) page for new DashMed users.
+ *
+ * Responsibilities:
+ *  - Display form fields for first name, last name, email, and password confirmation
+ *  - Show error messages when validation fails
+ *  - Maintain user input between failed submissions using session data
+ *  - Include CSRF token hidden input for secure form submission
+ */
 class signinView
 {
+    /**
+     * Outputs the HTML content of the registration form.
+     *
+     * The view uses values stored in the session to prefill inputs after validation errors,
+     * displays any stored error messages, and includes a hidden CSRF token for security.
+     *
+     * @return void
+     */
     public function show(): void
     {
         $csrf = $_SESSION['_csrf'] ?? '';

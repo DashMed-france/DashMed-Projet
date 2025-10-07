@@ -1,9 +1,38 @@
 <?php
 
+/**
+ * DashMed — Dashboard View
+ *
+ * Displays the main dashboard page for authenticated users.
+ * Contains key patient metrics, a search bar, and side components such as the sidebar and calendar.
+ *
+ * @package   DashMed\Modules\Views
+ * @author    DashMed Team
+ * @license   Proprietary
+ */
+
 namespace modules\views;
 
+/**
+ * Renders the Dashboard interface for the DashMed platform.
+ *
+ * Responsibilities:
+ *  - Include necessary layout components (sidebar, patient info, etc.)
+ *  - Display health-related cards (heart rate, O₂, tension, temperature)
+ *  - Render search and calendar sections for quick access
+ *
+ * @see /assets/js/dash.js
+ */
 class dashboardView
 {
+    /**
+     * Outputs the complete HTML structure for the dashboard page.
+     *
+     * Includes the sidebar, top search bar, patient information panel, calendar, and doctor list.
+     * This view does not perform any business logic — it only handles the rendering.
+     *
+     * @return void
+     */
     public function show(): void
     {
         ?>

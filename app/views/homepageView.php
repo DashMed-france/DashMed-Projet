@@ -1,10 +1,39 @@
 <?php
+/**
+ * DashMed — Homepage View
+ *
+ * Displays the public landing page of DashMed before authentication.
+ * It introduces the platform, its goals, and provides navigation to login and sign-up pages.
+ *
+ * @package   DashMed\Modules\Views
+ * @author    DashMed Team
+ * @license   Proprietary
+ */
 // app/views/homepageView.php
 
 namespace modules\views;
 
+/**
+ * Renders the main homepage of DashMed.
+ *
+ * Responsibilities:
+ *  - Display the brand and navigation bar (Accueil, À propos)
+ *  - Present introduction text about the DashMed mission
+ *  - Offer access to login and sign-up routes
+ *  - Render footer with legal mentions and copyright
+ *
+ * @see /assets/js/home.js
+ */
 class homepageView
 {
+    /**
+     * Outputs the HTML content for the homepage.
+     *
+     * This method renders the structure of the public landing page, including
+     * the header navigation, hero section, main content, and footer.
+     *
+     * @return void
+     */
     public function show(): void
     {
         ?>

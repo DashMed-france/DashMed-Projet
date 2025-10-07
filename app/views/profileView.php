@@ -1,8 +1,36 @@
 <?php
+/**
+ * DashMed — Profile View
+ *
+ * Displays the user's profile management interface.
+ * Allows editing of personal details (first name, last name, specialty),
+ * and account deletion, with CSRF protection for all forms.
+ *
+ * @package   DashMed\Modules\Views
+ * @author    DashMed Team
+ * @license   Proprietary
+ */
 namespace modules\views;
 
+/**
+ * Renders the profile page for authenticated DashMed users.
+ *
+ * Responsibilities:
+ *  - Display user information retrieved from the database
+ *  - Allow updating personal information and medical specialty
+ *  - Handle success/error messages and CSRF tokens for form validation
+ *  - Include a danger zone for account deletion confirmation
+ */
 class profileView
 {
+    /**
+     * Outputs the HTML content for the profile page.
+     *
+     * @param array|null $user          Associative array containing the current user's data.
+     * @param array       $specialties   List of available medical specialties (id, name).
+     * @param array|null  $msg           Optional message array (['type' => 'success|error', 'text' => string]).
+     * @return void
+     */
     public function show(?array $user, array $specialties = [], ?array $msg = null): void
     {
         if (session_status() !== PHP_SESSION_ACTIVE) session_start();

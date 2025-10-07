@@ -6,10 +6,21 @@ use modules\views\loginView;
 
 require_once __DIR__ . '/../../assets/includes/database.php';
 
+/**
+ * Contrôleur de gestion de l'authentification utilisateur.
+ */
 class LoginController
 {
+    /**
+     * Modèle de gestion de connexion.
+     *
+     * @var loginModel
+     */
     private loginModel $model;
 
+    /**
+     * Initialise le contrôleur et démarre la session si nécessaire.
+     */
     public function __construct()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -19,6 +30,11 @@ class LoginController
         $this->model = new loginModel($pdo);
     }
 
+    /**
+     * Affiche la page de connexion ou redirige vers le tableau de bord si l'utilisateur est déjà connecté.
+     *
+     * @return void
+     */
     public function get(): void
     {
         if ($this->isUserLoggedIn()) {
@@ -31,6 +47,11 @@ class LoginController
         (new loginView())->show();
     }
 
+    /**
+     * Traite la soumission du formulaire de connexion.
+     *
+     * @return void
+     */
     public function post(): void
     {
         if (isset($_SESSION['_csrf'], $_POST['_csrf']) && !hash_equals($_SESSION['_csrf'], (string)$_POST['_csrf'])) {
@@ -67,6 +88,11 @@ class LoginController
         exit;
     }
 
+    /**
+     * Déconnecte l'utilisateur et détruit la session.
+     *
+     * @return void
+     */
     public function logout(): void
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -83,6 +109,11 @@ class LoginController
         exit;
     }
 
+    /**
+     * Vérifie si l'utilisateur est connecté.
+     *
+     * @return bool
+     */
     private function isUserLoggedIn(): bool
     {
         return isset($_SESSION['email']);

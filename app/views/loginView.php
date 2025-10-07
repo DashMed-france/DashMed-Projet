@@ -1,9 +1,39 @@
 <?php
+/**
+ * DashMed — Login View
+ *
+ * Displays the login form allowing users to authenticate themselves on DashMed.
+ * Includes CSRF protection, email/password fields, and links for registration
+ * and password recovery.
+ *
+ * @package   DashMed\Modules\Views
+ * @author    DashMed Team
+ * @license   Proprietary
+ */
 
 namespace modules\views;
 
+/**
+ * Renders the login page for the DashMed platform.
+ *
+ * Responsibilities:
+ *  - Display the login form with CSRF token
+ *  - Provide input fields for email and password
+ *  - Include buttons for form submission and navigation
+ *  - Load dedicated stylesheets and JavaScript for form interactivity
+ */
 class loginView
 {
+    /**
+     * Outputs the complete HTML for the login form.
+     *
+     * The form uses POST submission to the /?page=login route and includes:
+     *  - Email and password input fields
+     *  - A CSRF token for request validation
+     *  - Navigation links for account creation and password recovery
+     *
+     * @return void
+     */
     public function show(): void
     {
         $csrf = $_SESSION['_csrf'] ?? '';

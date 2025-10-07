@@ -1,10 +1,48 @@
 <?php
-declare(strict_types=1);
+/**
+ * DashMed — Database Connection Helper
+ *
+ * This class provides a singleton PDO connection to the MySQL database.
+ * It automatically reads configuration variables from the `.env` file located
+ * two levels above this file and ensures all required parameters are loaded.
+ *
+ * @package   DashMed\Core
+ * @author    DashMed Team
+ * @license   Proprietary
+ */
 
+/**
+ * Database connection singleton.
+ *
+ * Responsibilities:
+ *  - Load database credentials from a `.env` file.
+ *  - Validate that all required environment variables are defined.
+ *  - Establish and cache a PDO connection for reuse throughout the app.
+ *
+ * Usage example:
+ * ```php
+ * $pdo = Database::getInstance();
+ * ```
+ */
 final class Database
 {
+    /**
+     * Cached PDO instance shared across all database calls.
+     *
+     * @var PDO|null
+     */
     private static ?PDO $instance = null;
 
+    /**
+     * Returns a singleton PDO instance.
+     *
+     * If the instance is not yet created, this method loads environment
+     * variables, validates them, constructs a DSN, and establishes a
+     * connection with error handling.
+     *
+     * @return PDO  The shared PDO connection instance.
+     * @throws PDOException If the connection fails.
+     */
     public static function getInstance(): PDO
     {
         if (self::$instance instanceof PDO) {

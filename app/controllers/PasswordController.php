@@ -7,11 +7,28 @@ use PDO;
 require_once __DIR__ . '/../../assets/includes/database.php';
 require_once __DIR__ . '/../../assets/includes/Mailer.php';
 
+/**
+ * Contrôleur de gestion de la réinitialisation de mot de passe.
+ */
 class passwordController
 {
+    /**
+     * Instance PDO pour l'accès à la base de données.
+     *
+     * @var PDO
+     */
     private PDO $pdo;
+
+    /**
+     * Instance du service d'envoi de mails.
+     *
+     * @var \Mailer
+     */
     private \Mailer $mailer;
 
+    /**
+     * Initialise le contrôleur, la connexion à la base et le mailer.
+     */
     public function __construct()
     {
         $this->pdo = \Database::getInstance();
@@ -22,6 +39,11 @@ class passwordController
         }
     }
 
+    /**
+     * Affiche la page de réinitialisation de mot de passe.
+     *
+     * @return void
+     */
     public function get(): void
     {
         if ($this->isUserLoggedIn()) {
@@ -36,6 +58,11 @@ class passwordController
         $view->show($msg);
     }
 
+    /**
+     * Traite les requêtes POST pour l'envoi du code ou la réinitialisation.
+     *
+     * @return void
+     */
     public function post(): void
     {
         if ($this->isUserLoggedIn()) {
@@ -54,6 +81,11 @@ class passwordController
         }
     }
 
+    /**
+     * Gère l'envoi du code de réinitialisation par e-mail.
+     *
+     * @return void
+     */
     private function handleSendCode(): void
     {
         $email = trim($_POST['email'] ?? '');
@@ -104,6 +136,11 @@ class passwordController
         header('Location: /?page=password&token='.$token);
     }
 
+    /**
+     * Gère la réinitialisation du mot de passe après saisie du code.
+     *
+     * @return void
+     */
     private function handleReset(): void
     {
         $token = $_POST['token'] ?? '';
@@ -122,8 +159,8 @@ class passwordController
         }
 
         $st = $this->pdo->prepare(
-            "SELECT id_user, reset_code_hash, reset_expires 
-             FROM users 
+            "SELECT id_user, reset_code_hash, reset_expires
+             FROM users
              WHERE reset_token=:t LIMIT 1"
         );
         $st->execute([':t'=>$token]);
@@ -144,8 +181,8 @@ class passwordController
         $hash = password_hash($pass, PASSWORD_DEFAULT);
         $this->pdo->beginTransaction();
         $upd = $this->pdo->prepare(
-            "UPDATE users 
-             SET password=:p, reset_token=NULL, reset_code_hash=NULL, reset_expires=NULL 
+            "UPDATE users
+             SET password=:p, reset_token=NULL, reset_code_hash=NULL, reset_expires=NULL
              WHERE id_user=:id"
         );
         $upd->execute([':p'=>$hash, ':id'=>$u['id_user']]);
@@ -155,6 +192,11 @@ class passwordController
         header('Location: /?page=login');
     }
 
+    /**
+     * Vérifie si l'utilisateur est connecté.
+     *
+     * @return bool
+     */
     private function isUserLoggedIn(): bool
     {
         return isset($_SESSION['email']);

@@ -1,6 +1,24 @@
 <?php
+/**
+ * DashMed — Header Component
+ *
+ * This file defines the top header section displayed across DashMed pages.
+ * It may include the title of the current page, notifications, or user information.
+ *
+ * @package   DashMed\Views
+ * @author    DashMed Team
+ * @license   Proprietary
+ */
+
 $currentPage = $_GET['page'] ?? 'dashboard';
 
+/**
+ * Determines if a given page name matches the current page and returns an active ID string.
+ *
+ * @param string $pageName The name of the page to check.
+ * @param string $current The current active page.
+ * @return string Returns 'id="active"' if the page is active, otherwise an empty string.
+ */
 function isActive(string $pageName, string $current): string {
     return $pageName === $current ? 'id="active"' : '';
 }

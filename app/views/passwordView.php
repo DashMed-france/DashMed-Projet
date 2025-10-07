@@ -1,9 +1,41 @@
 <?php
+/**
+ * DashMed — Password Reset View
+ *
+ * Displays the interface for requesting and resetting user passwords.
+ * This page handles two cases:
+ *  - When no token is provided: asks for the user's email to send a reset code.
+ *  - When a valid token is present: asks for the code and a new password.
+ *
+ * @package   DashMed\Modules\Views
+ * @author    DashMed Team
+ * @license   Proprietary
+ */
 
+/**
+ * Renders the password reset page of the DashMed platform.
+ *
+ * Responsibilities:
+ *  - Display the form to request a password reset email.
+ *  - Handle the case where the token is provided and show the code/password form.
+ *  - Include proper form field validation and client-side scripts.
+ */
 namespace modules\views;
 
 class passwordView
 {
+    /**
+     * Outputs the HTML content for the password reset page.
+     *
+     * Depending on the presence of a valid token in the URL, this method either:
+     *  - Displays a form requesting the user's email to receive a reset code.
+     *  - Displays a form to input the verification code and define a new password.
+     *
+     * @param array|null $msg  Optional associative array containing a message with keys:
+     *                         - 'type' (success|error)
+     *                         - 'text' (message content)
+     * @return void
+     */
     public function show(?array $msg = null): void
     {
         $token = $_GET['token'] ?? '';

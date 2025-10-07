@@ -73,7 +73,7 @@ final class Mailer
         }
 
         if (!empty($user)) {
-            $this->m->setFrom($user, 'Support');
+            $this->m->setFrom($user, 'Support DashMed');
         }
     }
 

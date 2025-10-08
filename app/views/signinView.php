@@ -9,7 +9,6 @@
  * @author    DashMed Team
  * @license   Proprietary
  */
-// app/views/signinView.php
 declare(strict_types=1);
 
 namespace modules\views;

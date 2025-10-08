@@ -98,15 +98,14 @@ class homepageView
             <img class="wave" src="assets/img/fond.svg" alt="wave">
             <section>
                 <section class="footer">
-                    <article class="mentions-legales">
-                        <h1>Mentions légales</h1>
-                        <p>Les icones de ce site proviennent de <a href="https://www.flaticon.com/fr/" target="_blank">Flaticon</a>.</p>
+                    <article>
+                        <p><a href="/?page=legalnotice" class="btn btn-primary">Mentions légales</a></p>
                     </article>
                     <article>
                         <p>© DashMed — <span id="year"></span> · Tous droits réservés</p>
                     </article>
                     <article>
-                        <p><a href="/?page=plan" class="btn btn-primary">Plan du site</a></p>
+                        <p><a href="/?page=sitemap" class="btn btn-primary">Plan du site</a></p>
                     </article>
                 </section>
             </section>

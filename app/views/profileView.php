@@ -45,6 +45,8 @@ class profileView
         <head>
             <meta charset="UTF-8">
             <title>DashMed - Mon profil</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name=" description" content="Modifiez vos informations personnelles ici."
             <link rel="stylesheet" href="assets/css/themes/light.css">
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/dash.css">

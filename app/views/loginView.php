@@ -43,8 +43,7 @@ class loginView
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="description"
-                  content="Cette partie du Site ETU est dédiée aux différents cours des professeurs.">
+            <meta name="description" content="Connectez vous à votre epsace.">
             <title>DashMed - Se connecter</title>
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/form.css">

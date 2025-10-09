@@ -41,6 +41,8 @@ class dashboardView
         <head>
             <meta charset="UTF-8">
             <title>DashMed - Dashboard</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="Tableau de bord pour que les médecins puissent suivre les informations vitales de leur patients.">
             <link rel="stylesheet" href="assets/css/themes/light.css">
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/dash.css">

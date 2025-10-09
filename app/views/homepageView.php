@@ -46,6 +46,7 @@ class homepageView
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/themes/light.css">
             <link rel="stylesheet" href="assets/css/home.css" />
+            <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
         </head>
         <body>
         <header class="nav-fixed">
@@ -53,10 +54,10 @@ class homepageView
                 <section>
                     <article>
                         <div class="brand">
-                            <img src="assets/img/icons/logo.png" alt="Logo DashMed" class="brand-logo">
+                            <img src="assets/img/logo.svg" alt="Logo DashMed" class="brand-logo">
                         </div>
                         <button class="brand mobile" onclick="toggleDropdownMenu()">
-                            <img src="assets/img/icons/logo.png" alt="Logo DashMed" class="brand-logo">
+                            <img src="assets/img/logo.svg" alt="Logo DashMed" class="brand-logo">
                         </button>
                     </article>
                     <article class="nav-links" id="links">

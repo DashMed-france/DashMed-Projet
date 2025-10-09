@@ -48,6 +48,7 @@ class profileView
             <link rel="stylesheet" href="assets/css/themes/light.css">
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/dash.css">
+            <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
         </head>
         <body>
         <?php include 'components/sidebar.php'; ?>

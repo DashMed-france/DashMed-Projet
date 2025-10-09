@@ -49,6 +49,7 @@ class loginView
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/form.css">
             <link id="theme" rel="stylesheet" href="assets/css/themes/light.css">
+            <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
         </head>
         <body>
         <form action="/?page=login" method="post" novalidate>

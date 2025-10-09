@@ -7,7 +7,7 @@ use modules\views\legalnoticeView;
 /**
  * Contrôleur de la page des mentions légales.
  */
-class LegalNoticeController
+class LegalnoticeController
 {
     /**
      * Affiche la vue de la page des mentions légales ou redirige vers le tableau de bord si l'utilisateur est connecté.

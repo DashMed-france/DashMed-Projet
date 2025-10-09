@@ -1,35 +1,38 @@
 <?php
 
 /**
- * DashMed — Dashboard View
+ * DashMed — Vue du tableau de bord
  *
- * Displays the main dashboard page for authenticated users.
- * Contains key patient metrics, a search bar, and side components such as the sidebar and calendar.
+ * Affiche la page principale du tableau de bord pour les utilisateurs authentifiés.
+ * Contient les indicateurs clés du patient, une barre de recherche
+ * et des composants latéraux tels que la barre latérale et le calendrier.
  *
  * @package   DashMed\Modules\Views
- * @author    DashMed Team
- * @license   Proprietary
+ * @author    Équipe DashMed
+ * @license   Propriétaire
  */
 
 namespace modules\views;
 
 /**
- * Renders the Dashboard interface for the DashMed platform.
+ * Affiche l’interface du tableau de bord de la plateforme DashMed.
  *
- * Responsibilities:
- *  - Include necessary layout components (sidebar, patient info, etc.)
- *  - Display health-related cards (heart rate, O₂, tension, temperature)
- *  - Render search and calendar sections for quick access
+ * Responsabilités :
+ *  - Inclure les composants de mise en page nécessaires (barre latérale, infos patient, etc.)
+ *  - Afficher les cartes liées à la santé (rythme cardiaque, O₂, tension, température)
+ *  - Rendre les sections de recherche et de calendrier pour un accès rapide
  *
  * @see /assets/js/dash.js
  */
+
 class dashboardView
 {
     /**
-     * Outputs the complete HTML structure for the dashboard page.
+     * Génère la structure HTML complète de la page du tableau de bord.
      *
-     * Includes the sidebar, top search bar, patient information panel, calendar, and doctor list.
-     * This view does not perform any business logic — it only handles the rendering.
+     * Inclut la barre latérale, la barre de recherche supérieure, le panneau d’informations patient,
+     * le calendrier et la liste des médecins.
+     * Cette vue n’effectue aucune logique métier — elle se limite uniquement au rendu.
      *
      * @return void
      */
@@ -42,7 +45,10 @@ class dashboardView
             <meta charset="UTF-8">
             <title>DashMed - Dashboard</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="description" content="Tableau de bord pour que les médecins puissent suivre les informations vitales de leur patients.">
+            <meta name="robots" content="noindex, nofollow">
+            <meta name="author" content="DashMed Team">
+            <meta name="keywords" content="dashboard, santé, médecins, patients, DashMed">
+            <meta name="description" content="Tableau de bord privé pour les médecins, accessible uniquement aux utilisateurs authentifiés.">
             <link rel="stylesheet" href="assets/css/themes/light.css">
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/dash.css">

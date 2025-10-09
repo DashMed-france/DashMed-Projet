@@ -36,6 +36,26 @@ Search.appendIndex(
             "summary": "V\u00E9rifie\u0020si\u0020l\u0027utilisateur\u0020est\u0020connect\u00E9.",
             "url": "classes/modules-controllers-homepageController.html#method_isUserLoggedIn"
         },                {
+            "fqsen": "\\modules\\controllers\\LegalnoticeController",
+            "name": "LegalnoticeController",
+            "summary": "Contr\u00F4leur\u0020de\u0020la\u0020page\u0020des\u0020mentions\u0020l\u00E9gales.",
+            "url": "classes/modules-controllers-LegalnoticeController.html"
+        },                {
+            "fqsen": "\\modules\\controllers\\LegalnoticeController\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "Affiche\u0020la\u0020vue\u0020de\u0020la\u0020page\u0020des\u0020mentions\u0020l\u00E9gales\u0020ou\u0020redirige\u0020vers\u0020le\u0020tableau\u0020de\u0020bord\u0020si\u0020l\u0027utilisateur\u0020est\u0020connect\u00E9.",
+            "url": "classes/modules-controllers-LegalnoticeController.html#method_get"
+        },                {
+            "fqsen": "\\modules\\controllers\\LegalnoticeController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Alias\u0020de\u0020la\u0020m\u00E9thode\u0020get\u0028\u0029.",
+            "url": "classes/modules-controllers-LegalnoticeController.html#method_index"
+        },                {
+            "fqsen": "\\modules\\controllers\\LegalnoticeController\u003A\u003AisUserLoggedIn\u0028\u0029",
+            "name": "isUserLoggedIn",
+            "summary": "V\u00E9rifie\u0020si\u0020l\u0027utilisateur\u0020est\u0020connect\u00E9.",
+            "url": "classes/modules-controllers-LegalnoticeController.html#method_isUserLoggedIn"
+        },                {
             "fqsen": "\\modules\\controllers\\LoginController",
             "name": "LoginController",
             "summary": "Contr\u00F4leur\u0020de\u0020gestion\u0020de\u0020l\u0027authentification\u0020utilisateur.",
@@ -173,33 +193,53 @@ Search.appendIndex(
         },                {
             "fqsen": "\\modules\\controllers\\SigninController",
             "name": "SigninController",
-            "summary": "Handles\u0020the\u0020sign\u002Din\u0020\u0028registration\u0029\u0020flow.",
+            "summary": "G\u00E8re\u0020le\u0020processus\u0020de\u0020connexion\u0020\u0028inscription\u0029.",
             "url": "classes/modules-controllers-SigninController.html"
         },                {
             "fqsen": "\\modules\\controllers\\SigninController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Controller\u0020constructor.",
+            "summary": "Constructeur\u0020du\u0020contr\u00F4leur.",
             "url": "classes/modules-controllers-SigninController.html#method___construct"
         },                {
             "fqsen": "\\modules\\controllers\\SigninController\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "HTTP\u0020GET\u0020handler.",
+            "summary": "Gestionnaire\u0020des\u0020requ\u00EAtes\u0020HTTP\u0020GET.",
             "url": "classes/modules-controllers-SigninController.html#method_get"
         },                {
             "fqsen": "\\modules\\controllers\\SigninController\u003A\u003Apost\u0028\u0029",
             "name": "post",
-            "summary": "HTTP\u0020POST\u0020handler.",
+            "summary": "Gestionnaire\u0020des\u0020requ\u00EAtes\u0020HTTP\u0020POST.",
             "url": "classes/modules-controllers-SigninController.html#method_post"
         },                {
             "fqsen": "\\modules\\controllers\\SigninController\u003A\u003AisUserLoggedIn\u0028\u0029",
             "name": "isUserLoggedIn",
-            "summary": "Indicates\u0020whether\u0020a\u0020user\u0020is\u0020considered\u0020logged\u0020in\u0020for\u0020the\u0020current\u0020session.",
+            "summary": "Indique\u0020si\u0020un\u0020utilisateur\u0020est\u0020consid\u00E9r\u00E9\u0020comme\u0020connect\u00E9\u0020pour\u0020la\u0020session\u0020actuelle.",
             "url": "classes/modules-controllers-SigninController.html#method_isUserLoggedIn"
         },                {
             "fqsen": "\\modules\\controllers\\SigninController\u003A\u003A\u0024model",
             "name": "model",
-            "summary": "Business\u0020logic\/model\u0020for\u0020sign\u002Din\/registration\u0020operations.",
+            "summary": "Logique\u0020m\u00E9tier\u0020\/\u0020mod\u00E8le\u0020pour\u0020les\u0020op\u00E9rations\u0020de\u0020connexion\u0020et\u0020d\u2019inscription.",
             "url": "classes/modules-controllers-SigninController.html#property_model"
+        },                {
+            "fqsen": "\\modules\\controllers\\SitemapController",
+            "name": "SitemapController",
+            "summary": "Contr\u00F4leur\u0020de\u0020la\u0020page\u0020du\u0020plan\u0020du\u0020site.",
+            "url": "classes/modules-controllers-SitemapController.html"
+        },                {
+            "fqsen": "\\modules\\controllers\\SitemapController\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "Affiche\u0020la\u0020vue\u0020de\u0020la\u0020page\u0020du\u0020plan\u0020du\u0020site\u0020ou\u0020redirige\u0020vers\u0020le\u0020tableau\u0020de\u0020bord\u0020si\u0020l\u0027utilisateur\u0020est\u0020connect\u00E9.",
+            "url": "classes/modules-controllers-SitemapController.html#method_get"
+        },                {
+            "fqsen": "\\modules\\controllers\\SitemapController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Alias\u0020de\u0020la\u0020m\u00E9thode\u0020get\u0028\u0029.",
+            "url": "classes/modules-controllers-SitemapController.html#method_index"
+        },                {
+            "fqsen": "\\modules\\controllers\\SitemapController\u003A\u003AisUserLoggedIn\u0028\u0029",
+            "name": "isUserLoggedIn",
+            "summary": "V\u00E9rifie\u0020si\u0020l\u0027utilisateur\u0020est\u0020connect\u00E9.",
+            "url": "classes/modules-controllers-SitemapController.html#method_isUserLoggedIn"
         },                {
             "fqsen": "\\modules\\models\\loginModel",
             "name": "loginModel",
@@ -263,38 +303,58 @@ Search.appendIndex(
         },                {
             "fqsen": "\\isActive\u0028\u0029",
             "name": "isActive",
-            "summary": "Determines\u0020if\u0020a\u0020given\u0020page\u0020name\u0020matches\u0020the\u0020current\u0020page\u0020and\u0020returns\u0020an\u0020active\u0020ID\u0020string.",
+            "summary": "D\u00E9termine\u0020si\u0020un\u0020nom\u0020de\u0020page\u0020correspond\u0020\u00E0\u0020la\u0020page\u0020actuelle\u0020et\u0020renvoie\u0020l\u2019attribut\u0020d\u2019ID\u0020actif.",
             "url": "namespaces/default.html#function_isActive"
         },                {
             "fqsen": "\\modules\\views\\dashboardView",
             "name": "dashboardView",
-            "summary": "Renders\u0020the\u0020Dashboard\u0020interface\u0020for\u0020the\u0020DashMed\u0020platform.",
+            "summary": "Affiche\u0020l\u2019interface\u0020du\u0020tableau\u0020de\u0020bord\u0020de\u0020la\u0020plateforme\u0020DashMed.",
             "url": "classes/modules-views-dashboardView.html"
         },                {
             "fqsen": "\\modules\\views\\dashboardView\u003A\u003Ashow\u0028\u0029",
             "name": "show",
-            "summary": "Outputs\u0020the\u0020complete\u0020HTML\u0020structure\u0020for\u0020the\u0020dashboard\u0020page.",
+            "summary": "G\u00E9n\u00E8re\u0020la\u0020structure\u0020HTML\u0020compl\u00E8te\u0020de\u0020la\u0020page\u0020du\u0020tableau\u0020de\u0020bord.",
             "url": "classes/modules-views-dashboardView.html#method_show"
         },                {
             "fqsen": "\\modules\\views\\homepageView",
             "name": "homepageView",
-            "summary": "Renders\u0020the\u0020main\u0020homepage\u0020of\u0020DashMed.",
+            "summary": "Affiche\u0020la\u0020page\u0020d\u2019accueil\u0020principale\u0020de\u0020DashMed.",
             "url": "classes/modules-views-homepageView.html"
         },                {
             "fqsen": "\\modules\\views\\homepageView\u003A\u003Ashow\u0028\u0029",
             "name": "show",
-            "summary": "Outputs\u0020the\u0020HTML\u0020content\u0020for\u0020the\u0020homepage.",
+            "summary": "Affiche\u0020le\u0020contenu\u0020HTML\u0020de\u0020la\u0020page\u0020d\u2019accueil.",
             "url": "classes/modules-views-homepageView.html#method_show"
+        },                {
+            "fqsen": "\\modules\\views\\legalnoticeView",
+            "name": "legalnoticeView",
+            "summary": "Affiche\u0020la\u0020page\u0020profil\u0020pour\u0020les\u0020utilisateurs\u0020authentifi\u00E9s\u0020de\u0020DashMed.",
+            "url": "classes/modules-views-legalnoticeView.html"
+        },                {
+            "fqsen": "\\modules\\views\\legalnoticeView\u003A\u003Ashow\u0028\u0029",
+            "name": "show",
+            "summary": "Affiche\u0020le\u0020contenu\u0020HTML\u0020de\u0020la\u0020page\u0020du\u0020plan\u0020du\u0020site.",
+            "url": "classes/modules-views-legalnoticeView.html#method_show"
         },                {
             "fqsen": "\\modules\\views\\loginView",
             "name": "loginView",
-            "summary": "Renders\u0020the\u0020login\u0020page\u0020for\u0020the\u0020DashMed\u0020platform.",
+            "summary": "Affiche\u0020la\u0020page\u0020de\u0020connexion\u0020de\u0020la\u0020plateforme\u0020DashMed.",
             "url": "classes/modules-views-loginView.html"
         },                {
             "fqsen": "\\modules\\views\\loginView\u003A\u003Ashow\u0028\u0029",
             "name": "show",
-            "summary": "Outputs\u0020the\u0020complete\u0020HTML\u0020for\u0020the\u0020login\u0020form.",
+            "summary": "G\u00E9n\u00E8re\u0020l\u2019int\u00E9gralit\u00E9\u0020du\u0020HTML\u0020du\u0020formulaire\u0020de\u0020connexion.",
             "url": "classes/modules-views-loginView.html#method_show"
+        },                {
+            "fqsen": "\\modules\\views\\mailerView",
+            "name": "mailerView",
+            "summary": "Rendu\u0020du\u0020contenu\u0020des\u0020emails\u0020DashMed.",
+            "url": "classes/modules-views-mailerView.html"
+        },                {
+            "fqsen": "\\modules\\views\\mailerView\u003A\u003Ashow\u0028\u0029",
+            "name": "show",
+            "summary": "Retourne\u0020le\u0020contenu\u0020HTML\u0020d\u2019un\u0020email\u0020de\u0020r\u00E9initialisation\u0020de\u0020mot\u0020de\u0020passe.",
+            "url": "classes/modules-views-mailerView.html#method_show"
         },                {
             "fqsen": "\\modules\\views\\passwordView",
             "name": "passwordView",
@@ -303,28 +363,38 @@ Search.appendIndex(
         },                {
             "fqsen": "\\modules\\views\\passwordView\u003A\u003Ashow\u0028\u0029",
             "name": "show",
-            "summary": "Outputs\u0020the\u0020HTML\u0020content\u0020for\u0020the\u0020password\u0020reset\u0020page.",
+            "summary": "Affiche\u0020le\u0020contenu\u0020HTML\u0020de\u0020la\u0020page\u0020de\u0020r\u00E9initialisation\u0020de\u0020mot\u0020de\u0020passe.",
             "url": "classes/modules-views-passwordView.html#method_show"
         },                {
             "fqsen": "\\modules\\views\\profileView",
             "name": "profileView",
-            "summary": "Renders\u0020the\u0020profile\u0020page\u0020for\u0020authenticated\u0020DashMed\u0020users.",
+            "summary": "Affiche\u0020la\u0020page\u0020profil\u0020pour\u0020les\u0020utilisateurs\u0020authentifi\u00E9s\u0020de\u0020DashMed.",
             "url": "classes/modules-views-profileView.html"
         },                {
             "fqsen": "\\modules\\views\\profileView\u003A\u003Ashow\u0028\u0029",
             "name": "show",
-            "summary": "Outputs\u0020the\u0020HTML\u0020content\u0020for\u0020the\u0020profile\u0020page.",
+            "summary": "Affiche\u0020le\u0020contenu\u0020HTML\u0020de\u0020la\u0020page\u0020profil.",
             "url": "classes/modules-views-profileView.html#method_show"
         },                {
             "fqsen": "\\modules\\views\\signinView",
             "name": "signinView",
-            "summary": "Renders\u0020the\u0020sign\u002Dup\u0020\u0028registration\u0029\u0020page\u0020for\u0020new\u0020DashMed\u0020users.",
+            "summary": "Affiche\u0020la\u0020page\u0020d\u2019inscription\u0020\u0028enregistrement\u0029\u0020pour\u0020les\u0020nouveaux\u0020utilisateurs\u0020DashMed.",
             "url": "classes/modules-views-signinView.html"
         },                {
             "fqsen": "\\modules\\views\\signinView\u003A\u003Ashow\u0028\u0029",
             "name": "show",
-            "summary": "Outputs\u0020the\u0020HTML\u0020content\u0020of\u0020the\u0020registration\u0020form.",
+            "summary": "Affiche\u0020le\u0020contenu\u0020HTML\u0020du\u0020formulaire\u0020d\u2019inscription.",
             "url": "classes/modules-views-signinView.html#method_show"
+        },                {
+            "fqsen": "\\modules\\views\\sitemapView",
+            "name": "sitemapView",
+            "summary": "Affiche\u0020la\u0020page\u0020\u00AB\u0020Plan\u0020du\u0020site\u0020\u00BB.",
+            "url": "classes/modules-views-sitemapView.html"
+        },                {
+            "fqsen": "\\modules\\views\\sitemapView\u003A\u003Ashow\u0028\u0029",
+            "name": "show",
+            "summary": "Affiche\u0020le\u0020contenu\u0020HTML\u0020de\u0020la\u0020page\u0020du\u0020plan\u0020du\u0020site.",
+            "url": "classes/modules-views-sitemapView.html#method_show"
         },                {
             "fqsen": "\\",
             "name": "\\",

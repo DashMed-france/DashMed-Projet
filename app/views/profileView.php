@@ -1,34 +1,35 @@
 <?php
 /**
- * DashMed — Profile View
+ * DashMed — Vue Profil
  *
- * Displays the user's profile management interface.
- * Allows editing of personal details (first name, last name, specialty),
- * and account deletion, with CSRF protection for all forms.
+ * Affiche l’interface de gestion du profil utilisateur.
+ * Permet l’édition des informations personnelles (prénom, nom, spécialité)
+ * et la suppression du compte, avec protection CSRF pour tous les formulaires.
  *
  * @package   DashMed\Modules\Views
- * @author    DashMed Team
- * @license   Proprietary
+ * @author    Équipe DashMed
+ * @license   Propriétaire
  */
 namespace modules\views;
 
 /**
- * Renders the profile page for authenticated DashMed users.
+ * Affiche la page profil pour les utilisateurs authentifiés de DashMed.
  *
- * Responsibilities:
- *  - Display user information retrieved from the database
- *  - Allow updating personal information and medical specialty
- *  - Handle success/error messages and CSRF tokens for form validation
- *  - Include a danger zone for account deletion confirmation
+ * Responsabilités :
+ *  - Afficher les informations de l’utilisateur récupérées depuis la base de données
+ *  - Permettre la mise à jour des informations personnelles et de la spécialité médicale
+ *  - Gérer les messages de succès/erreur et le jeton CSRF pour la validation du formulaire
+ *  - Inclure une zone dangereuse pour la confirmation de suppression de compte
  */
+
 class profileView
 {
     /**
-     * Outputs the HTML content for the profile page.
+     * Affiche le contenu HTML de la page profil.
      *
-     * @param array|null $user          Associative array containing the current user's data.
-     * @param array       $specialties   List of available medical specialties (id, name).
-     * @param array|null  $msg           Optional message array (['type' => 'success|error', 'text' => string]).
+     * @param array|null $user         Tableau associatif contenant les données de l’utilisateur courant.
+     * @param array      $specialties  Liste des spécialités médicales disponibles (id, name).
+     * @param array|null $msg          Message optionnel (['type' => 'success|error', 'text' => string]).
      * @return void
      */
     public function show(?array $user, array $specialties = [], ?array $msg = null): void
@@ -46,7 +47,7 @@ class profileView
             <meta charset="UTF-8">
             <title>DashMed - Mon profil</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name=" description" content="Modifiez vos informations personnelles ici."
+            <meta name=" description" content="Modifiez vos informations personnelles ici.">
             <link rel="stylesheet" href="assets/css/themes/light.css">
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/dash.css">
@@ -64,7 +65,6 @@ class profileView
                 </div>
             <?php endif; ?>
 
-            <!-- FORMULAIRE MISE À JOUR PROFIL -->
             <form action="/?page=profile" method="post" class="profile-form">
                 <input type="hidden" name="csrf" value="<?= $h($_SESSION['csrf_profile'] ?? '') ?>">
 

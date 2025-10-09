@@ -1,15 +1,16 @@
 <?php
 /**
- * DashMed — Sign-in/Registration Controller
+ * DashMed — Contrôleur de Connexion / Inscription
  *
- * This file defines the controller responsible for rendering the sign-in/registration
- * view and handling form submissions to create a new user account.
+ * Ce fichier définit le contrôleur responsable de l’affichage de la vue de connexion / inscription
+ * et de la gestion des soumissions de formulaire pour la création d’un nouveau compte utilisateur.
  *
  * @package   DashMed\Modules\Controllers
- * @author    DashMed Team
- * @license   Proprietary
+ * @author    Équipe DashMed
+ * @license   Propriétaire
  * @link      /?page=signin
  */
+
 declare(strict_types=1);
 
 namespace modules\controllers;
@@ -21,13 +22,13 @@ require_once __DIR__ . '/../../assets/includes/database.php';
 
 
 /**
- * Handles the sign-in (registration) flow.
+ * Gère le processus de connexion (inscription).
  *
- * Responsibilities:
- *  - Start a session (if not already started)
- *  - Provide the GET endpoint to display the sign-in form
- *  - Provide the POST endpoint to validate input and create a user
- *  - Redirect authenticated users to the dashboard
+ * Responsabilités :
+ *  - Démarrer une session (si elle n’est pas déjà active)
+ *  - Fournir le point d’entrée GET pour afficher le formulaire de connexion
+ *  - Fournir le point d’entrée POST pour valider les données et créer un utilisateur
+ *  - Rediriger les utilisateurs authentifiés vers le tableau de bord
  *
  * @see \modules\models\signinModel
  * @see \modules\views\signinView
@@ -35,17 +36,17 @@ require_once __DIR__ . '/../../assets/includes/database.php';
 class SigninController
 {
     /**
-     * Business logic/model for sign-in/registration operations.
+     * Logique métier / modèle pour les opérations de connexion et d’inscription.
      *
      * @var signinModel
      */
     private signinModel $model;
 
     /**
-     * Controller constructor.
+     * Constructeur du contrôleur.
      *
-     * Starts the session if needed, retrieves a shared PDO instance via the
-     * Database helper, and instantiates the sign-in model.
+     * Démarre la session si nécessaire, récupère une instance partagée de PDO via
+     * l’aide de base de données (Database helper) et instancie le modèle de connexion.
      */
     public function __construct()
     {
@@ -57,10 +58,10 @@ class SigninController
     }
 
     /**
-     * HTTP GET handler.
+     * Gestionnaire des requêtes HTTP GET.
      *
-     * If a user session already exists, redirects to the dashboard. Otherwise,
-     * ensures a CSRF token is available and renders the sign-in view.
+     * Si une session utilisateur existe déjà, redirige vers le tableau de bord.
+     * Sinon, s’assure qu’un jeton CSRF est disponible et affiche la vue de connexion.
      *
      * @return void
      */
@@ -77,18 +78,20 @@ class SigninController
     }
 
     /**
-     * HTTP POST handler.
+     * Gestionnaire des requêtes HTTP POST.
      *
-     * Validates submitted form fields (names, email, password & confirmation),
-     * enforces basic password policy, checks email uniqueness, and delegates
-     * account creation to the model. On success, seeds the session and redirects
-     * the user; on failure, stores an error message and preserves old input.
+     * Valide les champs du formulaire soumis (nom, e-mail, mot de passe et confirmation),
+     * applique une politique de sécurité minimale sur le mot de passe, vérifie l’unicité
+     * de l’adresse e-mail et délègue la création du compte au modèle. En cas de succès,
+     * initialise la session et redirige l’utilisateur ; en cas d’échec, enregistre un
+     * message d’erreur et conserve les données saisies.
      *
-     * Uses header-based redirects and session flash data to communicate
-     * validation outcomes.
+     * Utilise des redirections basées sur les en-têtes HTTP et des données de session
+     * temporaires (flash) pour communiquer les résultats de la validation.
      *
      * @return void
      */
+
     public function post(): void
     {
         error_log('[SigninController] POST /signin hit');
@@ -162,9 +165,9 @@ class SigninController
     }
 
     /**
-     * Indicates whether a user is considered logged in for the current session.
+     * Indique si un utilisateur est considéré comme connecté pour la session actuelle.
      *
-     * @return bool True if a user email exists in the session; false otherwise.
+     * @return bool True si une adresse e-mail d’utilisateur existe dans la session ; false sinon.
      */
     private function isUserLoggedIn(): bool
     {

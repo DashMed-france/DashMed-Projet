@@ -142,19 +142,19 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/controllers/SigninController.php"><a href="files/app-controllers-signincontroller.html"><abbr title="app/controllers/SigninController.php">SigninController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Handles the sign-in (registration) flow.</p>
+            <p class="phpdocumentor-summary">Gère le processus de connexion (inscription).</p>
 
 
-    <section class="phpdocumentor-description"><p>Responsibilities:</p>
+    <section class="phpdocumentor-description"><p>Responsabilités :</p>
 <ul>
-<li>Start a session (if not already started)</li>
-<li>Provide the GET endpoint to display the sign-in form</li>
-<li>Provide the POST endpoint to validate input and create a user</li>
-<li>Redirect authenticated users to the dashboard</li>
+<li>Démarrer une session (si elle n’est pas déjà active)</li>
+<li>Fournir le point d’entrée GET pour afficher le formulaire de connexion</li>
+<li>Fournir le point d’entrée POST pour valider les données et créer un utilisateur</li>
+<li>Rediriger les utilisateurs authentifiés vers le tableau de bord</li>
 </ul>
 </section>
 
@@ -212,7 +212,7 @@
     <span>
                         &nbsp;: <a href="classes/modules-models-signinModel.html"><abbr title="\modules\models\signinModel">signinModel</abbr></a>            </span>
 </dt>
-<dd>Business logic/model for sign-in/registration operations.</dd>
+<dd>Logique métier / modèle pour les opérations de connexion et d’inscription.</dd>
 
     </dl>
 
@@ -227,28 +227,28 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Controller constructor.</dd>
+<dd>Constructeur du contrôleur.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/modules-controllers-SigninController.html#method_get">get()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>HTTP GET handler.</dd>
+<dd>Gestionnaire des requêtes HTTP GET.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/modules-controllers-SigninController.html#method_post">post()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>HTTP POST handler.</dd>
+<dd>Gestionnaire des requêtes HTTP POST.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/modules-controllers-SigninController.html#method_isUserLoggedIn">isUserLoggedIn()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Indicates whether a user is considered logged in for the current session.</dd>
+<dd>Indique si un utilisateur est considéré comme connecté pour la session actuelle.</dd>
 
     </dl>
 
@@ -280,11 +280,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/controllers/SigninController.php"><a href="files/app-controllers-signincontroller.html"><abbr title="app/controllers/SigninController.php">SigninController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Business logic/model for sign-in/registration operations.</p>
+        <p class="phpdocumentor-summary">Logique métier / modèle pour les opérations de connexion et d’inscription.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -324,11 +324,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/controllers/SigninController.php"><a href="files/app-controllers-signincontroller.html"><abbr title="app/controllers/SigninController.php">SigninController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Controller constructor.</p>
+        <p class="phpdocumentor-summary">Constructeur du contrôleur.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -337,8 +337,8 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Starts the session if needed, retrieves a shared PDO instance via the
-Database helper, and instantiates the sign-in model.</p>
+        <section class="phpdocumentor-description"><p>Démarre la session si nécessaire, récupère une instance partagée de PDO via
+l’aide de base de données (Database helper) et instancie le modèle de connexion.</p>
 </section>
 
     
@@ -362,11 +362,11 @@ Database helper, and instantiates the sign-in model.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/controllers/SigninController.php"><a href="files/app-controllers-signincontroller.html"><abbr title="app/controllers/SigninController.php">SigninController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">HTTP GET handler.</p>
+        <p class="phpdocumentor-summary">Gestionnaire des requêtes HTTP GET.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -375,8 +375,8 @@ Database helper, and instantiates the sign-in model.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>If a user session already exists, redirects to the dashboard. Otherwise,
-ensures a CSRF token is available and renders the sign-in view.</p>
+        <section class="phpdocumentor-description"><p>Si une session utilisateur existe déjà, redirige vers le tableau de bord.
+Sinon, s’assure qu’un jeton CSRF est disponible et affiche la vue de connexion.</p>
 </section>
 
     
@@ -400,11 +400,11 @@ ensures a CSRF token is available and renders the sign-in view.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/controllers/SigninController.php"><a href="files/app-controllers-signincontroller.html"><abbr title="app/controllers/SigninController.php">SigninController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">HTTP POST handler.</p>
+        <p class="phpdocumentor-summary">Gestionnaire des requêtes HTTP POST.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -413,12 +413,13 @@ ensures a CSRF token is available and renders the sign-in view.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Validates submitted form fields (names, email, password &amp; confirmation),
-enforces basic password policy, checks email uniqueness, and delegates
-account creation to the model. On success, seeds the session and redirects
-the user; on failure, stores an error message and preserves old input.</p>
-<p>Uses header-based redirects and session flash data to communicate
-validation outcomes.</p>
+        <section class="phpdocumentor-description"><p>Valide les champs du formulaire soumis (nom, e-mail, mot de passe et confirmation),
+applique une politique de sécurité minimale sur le mot de passe, vérifie l’unicité
+de l’adresse e-mail et délègue la création du compte au modèle. En cas de succès,
+initialise la session et redirige l’utilisateur ; en cas d’échec, enregistre un
+message d’erreur et conserve les données saisies.</p>
+<p>Utilise des redirections basées sur les en-têtes HTTP et des données de session
+temporaires (flash) pour communiquer les résultats de la validation.</p>
 </section>
 
     
@@ -442,11 +443,11 @@ validation outcomes.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/controllers/SigninController.php"><a href="files/app-controllers-signincontroller.html"><abbr title="app/controllers/SigninController.php">SigninController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">169</span>
+    <span class="phpdocumentor-element-found-in__line">172</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Indicates whether a user is considered logged in for the current session.</p>
+        <p class="phpdocumentor-summary">Indique si un utilisateur est considéré comme connecté pour la session actuelle.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -465,7 +466,7 @@ validation outcomes.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>True if a user email exists in the session; false otherwise.</p>
+                <section class="phpdocumentor-description"><p>True si une adresse e-mail d’utilisateur existe dans la session ; false sinon.</p>
 </section>
 
             </section>

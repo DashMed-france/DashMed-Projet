@@ -1,23 +1,23 @@
 <?php
 /**
- * DashMed — Header Component
+ * DashMed — Composant d’en-tête
  *
- * This file defines the top header section displayed across DashMed pages.
- * It may include the title of the current page, notifications, or user information.
+ * Ce fichier définit la section d’en-tête affichée sur l’ensemble des pages de DashMed.
+ * Elle peut inclure le titre de la page actuelle, les notifications ou les informations de l’utilisateur.
  *
  * @package   DashMed\Views
- * @author    DashMed Team
- * @license   Proprietary
+ * @author    Équipe DashMed
+ * @license   Propriétaire
  */
 
 $currentPage = $_GET['page'] ?? 'dashboard';
 
 /**
- * Determines if a given page name matches the current page and returns an active ID string.
+ * Détermine si un nom de page correspond à la page actuelle et renvoie l’attribut d’ID actif.
  *
- * @param string $pageName The name of the page to check.
- * @param string $current The current active page.
- * @return string Returns 'id="active"' if the page is active, otherwise an empty string.
+ * @param string $pageName Nom de la page à vérifier.
+ * @param string $current  Page actuellement active.
+ * @return string Renvoie 'id="active"' si la page est active, sinon une chaîne vide.
  */
 function isActive(string $pageName, string $current): string {
     return $pageName === $current ? 'id="active"' : '';

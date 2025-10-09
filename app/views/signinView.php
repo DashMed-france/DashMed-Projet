@@ -1,34 +1,36 @@
 <?php
 /**
- * DashMed — Sign-in View
+ * DashMed — Vue d’inscription
  *
- * Displays the registration form allowing new users to create an account.
- * Includes CSRF protection, password confirmation fields, and validation error handling.
+ * Affiche le formulaire d’inscription permettant aux nouveaux utilisateurs de créer un compte.
+ * Inclut la protection CSRF, les champs de confirmation de mot de passe
+ * et la gestion des erreurs de validation.
  *
  * @package   DashMed\Modules\Views
- * @author    DashMed Team
- * @license   Proprietary
+ * @author    Équipe DashMed
+ * @license   Propriétaire
  */
 declare(strict_types=1);
 
 namespace modules\views;
 
 /**
- * Renders the sign-up (registration) page for new DashMed users.
+ * Affiche la page d’inscription (enregistrement) pour les nouveaux utilisateurs DashMed.
  *
- * Responsibilities:
- *  - Display form fields for first name, last name, email, and password confirmation
- *  - Show error messages when validation fails
- *  - Maintain user input between failed submissions using session data
- *  - Include CSRF token hidden input for secure form submission
+ * Responsabilités :
+ *  - Afficher les champs prénom, nom, email et confirmation de mot de passe
+ *  - Montrer les messages d’erreur en cas d’échec de validation
+ *  - Conserver les saisies entre deux envois grâce aux données de session
+ *  - Inclure un champ caché avec jeton CSRF pour un envoi sécurisé
  */
 class signinView
 {
     /**
-     * Outputs the HTML content of the registration form.
+     * Affiche le contenu HTML du formulaire d’inscription.
      *
-     * The view uses values stored in the session to prefill inputs after validation errors,
-     * displays any stored error messages, and includes a hidden CSRF token for security.
+     * La vue réutilise les valeurs stockées en session pour préremplir les champs
+     * après des erreurs de validation, affiche les messages d’erreur éventuels
+     * et inclut un jeton CSRF caché pour la sécurité.
      *
      * @return void
      */
@@ -48,6 +50,9 @@ class signinView
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="description" content="Inscrivez vous à notre service.">
+            <meta name="keywords" content="inscription, créer un compte, dashmed, médecin, patient, santé en ligne">
+            <meta name="author" content="DashMed Team">
+            <meta name="robots" content="noindex, nofollow">
             <title>DashMed - Créer un compte</title>
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/form.css">

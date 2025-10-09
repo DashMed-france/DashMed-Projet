@@ -2,6 +2,7 @@
 namespace modules\controllers;
 
 use modules\views\passwordView;
+use modules\views\mailerView;
 use PDO;
 
 require_once __DIR__ . '/../../assets/includes/database.php';
@@ -103,29 +104,26 @@ class passwordController
 
         $_SESSION['pw_msg'] = ['type'=>'info','text'=>$generic];
 
-        if (!$user) {
-            header('Location: /?page=password');
-            return;
-        }
-
         $token = bin2hex(random_bytes(16));
         $code  = str_pad((string)random_int(0, 999999), 6, '0', STR_PAD_LEFT);
         $codeHash = password_hash($code, PASSWORD_DEFAULT);
         $expires  = (new \DateTime('+20 minutes'))->format('Y-m-d H:i:s');
 
-        $upd = $this->pdo->prepare(
-            "UPDATE users SET reset_token=:t, reset_code_hash=:c, reset_expires=:x WHERE id_user=:id"
-        );
-        $upd->execute([':t'=>$token, ':c'=>$codeHash, ':x'=>$expires, ':id'=>$user['id_user']]);
-
-        // Envoie e-mail
         $appUrl = rtrim($_ENV['APP_URL'] ?? '', '/');
         $link   = $appUrl ? $appUrl . "/?page=password&token={$token}" : "/?page=password&token={$token}";
 
-        $html = "<p>Bonjour,</p>
-                 <p>Votre code de réinitialisation est&nbsp;: <strong style='font-size:20px'>{$code}</strong></p>
-                 <p>Ce code expire dans 20 minutes.</p>
-                 <p>Ou cliquez ici pour continuer : <a href='{$link}'>Réinitialiser le mot de passe</a></p>";
+        if ($user) {
+            $upd = $this->pdo->prepare(
+                "UPDATE users
+                 SET reset_token=:t, reset_code_hash=:c, reset_expires=:e
+                 WHERE id_user=:id"
+            );
+            $upd->execute([':t' => $token, ':c' => $codeHash, ':e' => $expires, ':id' => $user['id_user']]);
+
+            $tpl = new mailerView();
+            $html = $tpl->show($code, $link);
+            $this->mailer->send($user['email'], 'Votre code de réinitialisation', $html);
+        }
 
         try {
             $this->mailer->send($user['email'], 'Votre code de réinitialisation', $html);
@@ -133,7 +131,7 @@ class passwordController
             error_log('[Password] Mail send failed: ' . $e->getMessage());
         }
 
-        header('Location: /?page=password&token='.$token);
+        header('Location: ' . $link);
     }
 
     /**

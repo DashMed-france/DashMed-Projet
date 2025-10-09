@@ -1,36 +1,36 @@
 <?php
 /**
- * DashMed — Login View
+ * DashMed — Vue de connexion
  *
- * Displays the login form allowing users to authenticate themselves on DashMed.
- * Includes CSRF protection, email/password fields, and links for registration
- * and password recovery.
+ * Affiche le formulaire de connexion permettant aux utilisateurs de s’authentifier sur DashMed.
+ * Inclut la protection CSRF, les champs email/mot de passe et des liens vers l’inscription
+ * et la récupération de mot de passe.
  *
  * @package   DashMed\Modules\Views
- * @author    DashMed Team
- * @license   Proprietary
+ * @author    Équipe DashMed
+ * @license   Propriétaire
  */
 
 namespace modules\views;
 
 /**
- * Renders the login page for the DashMed platform.
+ * Affiche la page de connexion de la plateforme DashMed.
  *
- * Responsibilities:
- *  - Display the login form with CSRF token
- *  - Provide input fields for email and password
- *  - Include buttons for form submission and navigation
- *  - Load dedicated stylesheets and JavaScript for form interactivity
+ * Responsabilités :
+ *  - Afficher le formulaire de connexion avec jeton CSRF
+ *  - Fournir les champs de saisie pour l’email et le mot de passe
+ *  - Inclure les boutons d’envoi du formulaire et de navigation
+ *  - Charger les feuilles de style et scripts dédiés pour l’interactivité du formulaire
  */
 class loginView
 {
     /**
-     * Outputs the complete HTML for the login form.
+     * Génère l’intégralité du HTML du formulaire de connexion.
      *
-     * The form uses POST submission to the /?page=login route and includes:
-     *  - Email and password input fields
-     *  - A CSRF token for request validation
-     *  - Navigation links for account creation and password recovery
+     * Le formulaire envoie une requête POST vers la route /?page=login et inclut :
+     *  - Les champs de saisie email et mot de passe
+     *  - Un jeton CSRF pour la validation de la requête
+     *  - Des liens de navigation pour la création de compte et la récupération de mot de passe
      *
      * @return void
      */
@@ -43,7 +43,10 @@ class loginView
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="description" content="Connectez vous à votre epsace.">
+            <meta name="description" content="Connectez-vous à votre espace DashMed.">
+            <meta name="keywords" content="connexion, login, dashmed, compte médecin, espace patient, santé en ligne">
+            <meta name="author" content="DashMed Team">
+            <meta name="robots" content="noindex, nofollow">
             <title>DashMed - Se connecter</title>
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/form.css">

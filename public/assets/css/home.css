@@ -188,12 +188,17 @@ footer{
     display: flex;
     flex-direction: column;
     width: 100%;
-    justify-content: space-between;
+    margin-top: 2em;
+
     section{
         background: var(--primary-color);
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    .wave{
+        margin: 0;
+        transform: translateY(2px);
     }
 }
 
@@ -211,7 +216,6 @@ footer{
     align-items: flex-end;
     justify-content: space-between;
     width: 80%;
-    padding-top: 15em;
     article {
         display: flex;
         flex-direction: column;
@@ -225,10 +229,6 @@ footer{
         font-weight: bold;
         color: var(--primary-color);
     }
-}
-
-.wave{
-    margin: 0;
 }
 
 @media (max-width: 780px){

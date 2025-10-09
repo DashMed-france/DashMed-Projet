@@ -1,39 +1,39 @@
 <?php
 /**
- * DashMed — Password Reset View
+ * DashMed — Vue de réinitialisation de mot de passe
  *
- * Displays the interface for requesting and resetting user passwords.
- * This page handles two cases:
- *  - When no token is provided: asks for the user's email to send a reset code.
- *  - When a valid token is present: asks for the code and a new password.
+ * Affiche l’interface pour demander et réinitialiser le mot de passe.
+ * Deux cas sont gérés :
+ *  - Sans jeton : demande l’email de l’utilisateur pour envoyer un code.
+ *  - Avec jeton valide : demande le code et un nouveau mot de passe.
  *
  * @package   DashMed\Modules\Views
- * @author    DashMed Team
- * @license   Proprietary
+ * @author    Équipe DashMed
+ * @license   Propriétaire
  */
 
 /**
- * Renders the password reset page of the DashMed platform.
+ * Affiche la page de réinitialisation de mot de passe de la plateforme DashMed.
  *
- * Responsibilities:
- *  - Display the form to request a password reset email.
- *  - Handle the case where the token is provided and show the code/password form.
- *  - Include proper form field validation and client-side scripts.
+ * Responsabilités :
+ *  - Afficher le formulaire de demande d’email de réinitialisation.
+ *  - Gérer le cas où un jeton est fourni et montrer le formulaire code/nouveau mot de passe.
+ *  - Inclure une validation correcte des champs et les scripts côté client.
  */
 namespace modules\views;
 
 class passwordView
 {
     /**
-     * Outputs the HTML content for the password reset page.
+     * Affiche le contenu HTML de la page de réinitialisation de mot de passe.
      *
-     * Depending on the presence of a valid token in the URL, this method either:
-     *  - Displays a form requesting the user's email to receive a reset code.
-     *  - Displays a form to input the verification code and define a new password.
+     * Selon la présence d’un jeton valide dans l’URL, cette méthode :
+     *  - Affiche un formulaire demandant l’email de l’utilisateur pour recevoir un code.
+     *  - Affiche un formulaire pour saisir le code de vérification et définir un nouveau mot de passe.
      *
-     * @param array|null $msg  Optional associative array containing a message with keys:
+     * @param array|null $msg  Tableau associatif optionnel contenant un message avec les clés :
      *                         - 'type' (success|error)
-     *                         - 'text' (message content)
+     *                         - 'text' (contenu du message)
      * @return void
      */
     public function show(?array $msg = null): void
@@ -47,6 +47,9 @@ class passwordView
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="description" content="Page pour la réinitialisation du mot de passe.">
+            <meta name="keywords" content="réinitialisation mot de passe, dashmed, mot de passe oublié, sécurité compte, santé en ligne">
+            <meta name="author" content="DashMed Team">
+            <meta name="robots" content="noindex, nofollow">
             <title>DashMed - Réinitialisation mot de passe</title>
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="assets/css/form.css">
@@ -94,8 +97,14 @@ class passwordView
 
                     <article>
                         <label for="password">Nouveau mot de passe</label>
-                        <input type="password" id="password" name="password" minlength="8" required>
+                        <div class="password">
+                            <input type="password" id="password" name="password" minlength="8" required>
+                            <button type="button" class="toggle" data-target="password" aria-pressed="false">
+                                <img src="assets/img/icons/eye-open.svg" alt="Afficher le mot de passe">
+                            </button>
+                        </div>
                     </article>
+
 
                     <article class="buttons">
                         <a class="neg" href="/?page=login">Annuler</a>

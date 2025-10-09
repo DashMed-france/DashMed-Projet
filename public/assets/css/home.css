@@ -211,6 +211,7 @@ footer{
     align-items: flex-end;
     justify-content: space-between;
     width: 80%;
+    padding-top: 15em;
     article {
         display: flex;
         flex-direction: column;

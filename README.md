@@ -125,7 +125,9 @@ SMTP_PASS=your_smtp_password
 **Éditeur du site** : DashMed (projet universitaire)  
 **Responsable du contenu** : Équipe de développement DashMed  
 **Contact** : [dashmed@alwaysdata.net](mailto:dashmed@alwaysdata.net)  
-**Hébergement** : GitHub Pages / Serveur local (en développement)
+**Hébergement** : alwaysdata.net / Serveur local<br>
+**Adresse** : 13080, France<br>
+**Nationalité** : Française
 
 **Crédits :**
 
@@ -191,7 +193,9 @@ The project provides a **medical management dashboard** allowing users (patients
 **Publisher**: DashMed (University Project)  
 **Team**: DashMed Development Team  
 **Contact**: [dashmed@alwaysdata.net](mailto:dashmed@alwaysdata.net)  
-**Hosting**: GitHub Pages / Local Server
+**Hosting**: alwaysdata.net / Local Server  
+**Address**: 13080, France  
+**Nationality**: French
 
 **Credits:**
 

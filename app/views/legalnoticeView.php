@@ -77,8 +77,8 @@ class legalnoticeView
                         est édité par :
                     </p>
                     <p>
-                        <strong>Jules RIBBE</strong>, résidant à <strong>13080</strong>, de nationalité
-                        <strong>Française</strong>, né le <strong>07/12/2005</strong>.
+                        <strong>L'équipe DashMed</strong>, résidant à <strong>13080</strong>, de nationalité
+                        <strong>Française</strong>.
                     </p>
                 </section>
 
@@ -97,21 +97,46 @@ class legalnoticeView
                 <section>
                     <h2>3. Directeur de la publication</h2>
                     <p>
-                        Le directeur de la publication du site est <strong>Jules RIBBE</strong>.
+                        Les directeurs de la publication du site sont toute <strong>l'équipe DashMed</strong>.
                     </p>
                 </section>
 
                 <section>
                     <h2>4. Nous contacter</h2>
                     <ul>
-                        <li>Email : <a href="mailto:jules.ribbe@etu.univ-amu.fr">jules.ribbe@etu.univ-amu.fr</a></li>
-                        <li>Email : <a href="mailto:maxence.torchin@etu.univ-amu.fr">maxence.torchin@etu.univ-amu.fr</a></li>
-                        <li>Email : <a href="mailto:eloise.giusiano@etu.univ-amu.fr">eloise.giusiano@etu.univ-amu.fr</a></li>
-                        <li>Email : <a href="mailto:karmen.ratiananahary@etu.univ-amu.fr">karmen.ratiananahary@etu.univ-amu.fr</a></li>
-                        <li>Email : <a href="mailto:idris.mekidiche@etu.univ-amu.fr">idris.mekidiche@etu.univ-amu.fr</a></li>
+                        <li>Email : <a href="mailto:dashmed@alwaysdata.net">dashmed@alwaysdata.net</a></li>
                     </ul>
 
                 </section>
+
+                <section>
+                    <h2>5. Crédits & licences</h2>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/PHPMailer/PHPMailer" target="_blank" rel="noopener noreferrer">
+                                PHPMailer
+                            </a> — Licence MIT
+                        </li>
+                        <li>
+                            <a href="https://www.phpdoc.org/" target="_blank" rel="noopener noreferrer">
+                                phpDocumentor
+                            </a> — Licence MIT
+                        </li>
+                        <li>
+                            Police <strong>Poppins</strong> via
+                            <a href="https://fonts.google.com/specimen/Poppins" target="_blank" rel="noopener noreferrer">
+                                Google Fonts
+                            </a>
+                        </li>
+                        <li>
+                            Icônes et images :
+                            <a href="https://www.flaticon.com/" target="_blank" rel="noopener noreferrer">
+                                Flaticon
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
             </main>
 
             <footer>

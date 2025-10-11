@@ -19,5 +19,7 @@ Thumbs.db
 # Environment files
 .env
 
-# PGP doc
+# PHP doc
 .phpdoc
+
+.DS_Store

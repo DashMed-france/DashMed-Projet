@@ -21,3 +21,6 @@ Thumbs.db
 
 # PHP doc
 .phpdoc
+
+#DS_Store
+.DS_Store

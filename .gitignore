@@ -4,6 +4,7 @@
 
 # System files
 .DS_Store
+**/.DS_Store
 Thumbs.db
 
 # Configuration files
@@ -22,5 +23,5 @@ Thumbs.db
 # PHP doc
 .phpdoc
 
-#DS_Store (mac)
-**/.DS_Store
+
+
